@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>脑神卡里</title>
+    <link href="https://braingodkali.github.io/feed.xml" rel="self" />
+    <link href="https://braingodkali.github.io" />
+    <updated>2022-06-02T20:29:27+08:00</updated>
+    <author>
+        <name>BrainGod_Kali</name>
+    </author>
+    <id>https://braingodkali.github.io</id>
+
+    <entry>
+        <title>我成功的用Publii创建Github博客</title>
+        <author>
+            <name>BrainGod_Kali</name>
+        </author>
+        <link href="https://braingodkali.github.io/wo-cheng-gong-de-yong-publiichuang-jian-githubbo-ke.html"/>
+        <id>https://braingodkali.github.io/wo-cheng-gong-de-yong-publiichuang-jian-githubbo-ke.html</id>
+
+        <updated>2022-06-02T20:29:27+08:00</updated>
+            <summary>
+                <![CDATA[
+                    创建 GitHub 页面网站 Publii包括对Github Pages的支持，它为您提供了一个空间来构建一个网站，您可以使用该网站来突出显示Github项目，或者只是您自己！不幸的是，除非您有一些专业知识并愿意学习难以设置的工具（如Jekyll），否则实际构建网站的功能很少，但是多亏了Publii，您将能够在短短几分钟内创建一个功能齐全，令人惊叹的网站，该网站非常易于更新和维护。 创建 Github 页面不会花费很长时间，但我们需要介绍几个步骤，首先是： 在开始创建Github页面之前，我们需要生成一个访问令牌;这将允许Publii访问并更改您的Github页面，以便每当您单击Publii应用程序中的同步按钮时，它都可以创建和编辑您的网站;可以把它想象成创建一个密码，Publii可以用来进入Github俱乐部！ 生成访问令牌只需几秒钟;只需按照以下步骤操作： 请记住：您将无法再次看到令牌，因此请确保将其保存在某个位置。 我们现在生成了一个令牌，因此我们可以在Publii中创建我们的网站，并授予它访问我们的Github页面的权限。 我们已经有了访问令牌，因此这将允许Publii访问我们的Github页面以上传网站文件，但现在我们必须在Github上实际创建我们网站将要进入的区域。让我们回到Github并开始吧： 这就是Github方面的事情;现在我们可以跳到Publii进行最后一步。 在 Github 上准备好所有内容后，我们可以更新 Publii 中的连接设置，以便与我们刚刚创建的 Github Page 存储库同步。首先，开放Publii;如果您尚未创建网站，请创建一个网站并添加至少一个帖子，并确保已选择主题;没有它们，您的网站将无法正确创建。 现在，单击左侧边栏中的“服务器”选项以打开“服务器设置”屏幕。使用以下信息填写字段： 设置完所有选项后，单击“保存设置”按钮以存储更改。现在可能是单击“测试连接”按钮的好时机，该按钮将检查Publii是否能够连接到您的Github页面;如果不是，则某些字段可能输入不正确。 现在一切准备就绪，因此我们可以单击Publii侧边栏中的“同步您的网站”按钮开始部署。 重要！一旦同步过程完成，您上传的Publii网站可能不会立即可见;可能需要大约 1 分钟才能在网站上看到这些更改。如果要仔细检查更改是否已应用，可以检查存储库的“提交”部分，并选中提交区域中最新提交旁边的图标： 如果图标是橙色圆点，则表示已收到更改，但尚未部署。经过短暂的等待，您的更改将被添加。
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <div class="wrapper post__entry">
+<article class="post"><header>
+<h1 id="host-static-website-github-pages" class="post__title Lvl1">创建 GitHub 页面网站</h1>
+</header>
+<div class="post__entry">
+<p>Publii包括对Github Pages的支持，它为您提供了一个空间来构建一个网站，您可以使用该网站来突出显示Github项目，或者只是您自己！不幸的是，除非您有一些专业知识并愿意学习难以设置的工具（如Jekyll），否则实际构建网站的功能很少，但是多亏了Publii，您将能够在短短几分钟内创建一个功能齐全，令人惊叹的网站，该网站非常易于更新和维护。</p>
+<p>创建 Github 页面不会花费很长时间，但我们需要介绍几个步骤，首先是：</p>
+<h2 id="generatinganaccesstoken">生成访问令牌</h2>
+<p>在开始创建Github页面之前，我们需要生成一个访问令牌;这将允许Publii访问并更改您的Github页面，以便每当您单击Publii应用程序中的<strong>同步</strong>按钮时，它都可以创建和编辑您的网站;可以把它想象成创建一个密码，Publii可以用来进入Github俱乐部！</p>
+<p>生成访问令牌只需几秒钟;只需按照以下步骤操作：</p>
+<ol class="list-spaces">
+<li>首先转到<a href="https://github.com/" target="_blank" rel="nofollow noopener noreferrer" _mstmutation="1" _istranslated="1">Github首页</a>并登录到您的帐户;如果您还没有帐户，只需单击“<strong>注册</strong>”链接并完成注册过程即可。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/signin-3.jpg" data-is-external-image="true"  alt="登录到 Github 帐户" width="1456" height="998" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>登录后，打开 Github 配置文件设置。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/github-settings" data-is-external-image="true"  alt="Github 用户配置文件设置" width="1456" height="544" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>在个人资料屏幕的左侧栏中，单击<strong>“开发人员设置”。</strong>
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/developer-settings-2.png" data-is-external-image="true"  alt="Github Developer Settings" width="1456" height="1290" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>在 GitHub 应用页面的左侧边栏中，单击<strong>“个人访问令牌</strong>”选项。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/access-token-2.png" data-is-external-image="true"  alt="链接到个人访问令牌" width="1456" height="214" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>现在，我们位于“个人访问令牌”页面上;我们需要为我们的网站制作一个新的，所以点击屏幕顶部附近的<strong>“生成新令牌</strong>”按钮。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/github-token.png" data-is-external-image="true"  alt="生成新令牌" width="1456" height="300" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>在下一个屏幕上，填写<strong>令牌描述</strong>部分中的名称，例如“Publii”。现在，在<strong>“选择作用域</strong>”部分中，向主 <strong>Repo</strong> 选项添加一个复选标记，这将使令牌能够访问管理存储库的所有方面。最后，单击屏幕底部的绿色<strong>“生成令牌</strong>”按钮。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/generate-token.png" data-is-external-image="true"  alt="新的个人 GitHub 访问令牌" width="1456" height="2127" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>现在，你将返回到“个人访问令牌”页，但现在你的新令牌将显示在列表顶部。无论你做什么，都不要关闭或刷新此页面;令牌仅在生成后立即可见。单击令牌旁边的<strong>“复制”</strong>图标（请参阅下图），并将其复制到安全的地方，因为我们在设置Publii以使用Github页面时需要它。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/personal-access-token.png" data-is-external-image="true"  alt="复制个人访问令牌" width="1456" height="428" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+<p class="msg msg--highlight"><strong>请记住：</strong>您将无法再次看到令牌，因此请确保将其保存在某个位置。</p>
+</li>
+</ol>
+<p>我们现在生成了一个令牌，因此我们可以在Publii中创建我们的网站，并授予它访问我们的Github页面的权限。</p>
+<h2 id="creatingourstaticwebsiteongithubpages">在 Github Pages 上创建我们的静态网站</h2>
+<p>我们已经有了访问令牌，因此这将允许Publii访问我们的Github页面以上传网站文件，但现在我们必须在Github上实际创建我们网站将要进入的区域。让我们回到Github并开始吧：</p>
+<ol class="list-spaces">
+<li>像往常一样登录Github，然后点击顶栏中的加号图标打开一个子菜单;现在，单击“<strong>新建存储库</strong>”选项，转到“<strong>创建新存储库”</strong>屏幕。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/github-pages-new-repository.png" data-is-external-image="true"  alt="登录到 Github" width="1456" height="388" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>在此屏幕上，填写<strong>存储库名称</strong>，并将存储库保留为<strong>“公共</strong>”（Github 页面始终是公共的，即使托管它的存储库是私有的）。接下来，单击屏幕底部的绿色<strong>“创建存储库</strong>”按钮。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/create-new-repository-2.png" data-is-external-image="true"  alt="创建新的 GitHub 存储库" width="1456" height="1561" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>现在我们进入<strong>快速设置</strong>屏幕;这可能看起来有点令人困惑，但我们只需要在这里做一件简单的事情。点击<strong>自述</strong>文件链接，如下图所示;这将带我们进入创建自述文件的屏幕。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/github-pages-quick-setup.png" data-is-external-image="true"  alt="Github Pages 快速设置" width="1456" height="1723" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>在自述文件的编辑屏幕上，只需单击“<strong>提交新文件</strong>”按钮。我们之所以创建此文件，是因为您的存储库至少需要添加一个项目来创建主分支，所有 Publii 文件都将位于主分支的位置。此创建的文件将在Publii首次与我们的Github页面同步时自动删除。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/commit-new-file.png" data-is-external-image="true"  alt="提交新文件" width="1456" height="1601" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>提交文件后，我们将返回到文件列表;单击屏幕顶部附近的<strong>“设置</strong>”选项卡。
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/github-settings.png" data-is-external-image="true"  alt="Github 页面设置" width="1456" height="712" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>在设置屏幕上，滚动到<strong>Github页面</strong>部分;在“<strong>源</strong>”选项中，单击默认显示<strong>“无”</strong>的下拉列表，然后从选项列表中选择“<strong>主要</strong>分支”。现在，单击“<strong>保存</strong>”按钮以确保已提交更改。
+<figure class="post__image with-border">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/main-branch-github-pages" data-is-external-image="true"  alt="Github Pages Main Branch" width="1456" height="712" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+<li>保存后，您的GitHub页面将准备好用作静态网站主机;要查看您的网站，您需要转到绿色消息框中提供的URL。当然，您的网站还没有任何文件，但我们将对此进行更改。
+<figure class="post__image with-border">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/gitHub-pages-url.png" data-is-external-image="true"  alt="GitHub Pages URL" width="1456" height="1155" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+</li>
+</ol>
+<p>这就是Github方面的事情;现在我们可以跳到Publii进行最后一步。</p>
+<h2 id="syncingyourpubliistaticsitewithgithub">将您的Publii静态站点与Github同步</h2>
+<p>在 Github 上准备好所有内容后，我们可以更新 Publii 中的连接设置，以便与我们刚刚创建的 Github Page 存储库同步。首先，开放Publii;如果您尚未创建网站，请创建一个网站并添加至少一个帖子，并确保已选择主题;没有它们，您的网站将无法正确创建。</p>
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/github-pages-configuration-2.svg" data-is-external-image="true"  alt="GitHub 页面配置" width="748" height="946" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+<p>现在，单击左侧边栏中的“<strong>服务器</strong>”选项以打开<strong>“服务器设置”</strong>屏幕。使用以下信息填写字段：</p>
+<ul>
+<li><strong>网站网址</strong> - 这将是您的Github存储库路径，其格式为<strong>“YOUR_USERNAME.github.io/ YOUR_REPOSITORY_NAME”。</strong></li>
+<li><strong>API 服务器 </strong>- 默认情况下，此字段已随标准 API 服务器一起完成。但是，如果您正在运行自己的 GitHub 实例，则可以通过在此处输入 API 服务器来更改它。</li>
+<li><strong>用户名</strong> - 在此处添加您的 Github 用户名。</li>
+<li><strong>存储库</strong> - 在此处输入 Github 存储库的名称（我们在上面的 Github 页面部分的步骤 2 中设置了此名称）。</li>
+<li><strong>分支</strong> - 如果您一直遵循我们的指南，请在文本字段中编写<strong>主要</strong>（区分大小写）;有经验的用户可能希望指定其他设置<strong>，例如gh页面</strong>，<strong>文档</strong>等...</li>
+<li><strong>令牌</strong> - 还记得我们在本指南第一部分中保存的访问令牌吗？在此处输入该内容，以便 Publii 可以访问存储库。</li>
+<li><strong>并行上传</strong> - 默认为“1”。设置 Publii 在将网站内容上传到 GitHub 页面时可以使用的上传流数。数字越大，上传速度越快，但可能会导致连接速度慢时出现错误，或者由于 API 上传速率限制而导致错误 403。</li>
+<li> <strong>API 速率限制</strong> - 仅当使用禁用 API 速率限制的 Github Enterprise 时，才禁用此选项。其他禁用此选项可能会导致部署错误。</li>
+</ul>
+<p>设置完所有选项后，单击“<strong>保存设置”</strong>按钮以存储更改。现在可能是单击“<strong>测试连接</strong>”按钮的好时机，该按钮将检查Publii是否能够连接到您的Github页面;如果不是，则某些字段可能输入不正确。</p>
+<p>现在一切准备就绪，因此我们可以单击Publii侧边栏中的“<strong>同步您的网站</strong>”按钮开始部署。</p>
+<p class="msg msg--highlight"><strong>重要！</strong>一旦同步过程完成，您上传的Publii网站可能不会立即可见;可能需要大约 1 分钟才能在网站上看到这些更改。如果要仔细检查更改是否已应用，可以检查存储库的“<strong>提交</strong>”部分，并选中提交区域中最新提交旁边的图标：</p>
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/github-commits.png" data-is-external-image="true"  alt="Github Pages commits button" width="1456" height="695" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+<figure class="post__image">
+<figure class="is-loaded"><figure class="is-loaded"><img loading="lazy"  src="https://getpublii.com/docs/media/posts/25/github-commits-list.png" data-is-external-image="true"  alt="GitHub 提交列表" width="1456" height="558" loading="lazy" data-is-external-image="true"></figure></figure>
+</figure>
+<p>如果图标是橙色圆点，则表示已收到更改，但尚未部署。经过短暂的等待，您的更改将被添加。</p>
+</div>
+</article>
+<nav></nav></div>
+            ]]>
+        </content>
+    </entry>
+</feed>
