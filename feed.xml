@@ -3,7 +3,7 @@
     <title>脑神卡里</title>
     <link href="https://braingodkali.github.io/feed.xml" rel="self" />
     <link href="https://braingodkali.github.io" />
-    <updated>2022-07-01T14:29:13+08:00</updated>
+    <updated>2022-07-01T15:37:31+08:00</updated>
     <author>
         <name>BrainGod_Kali</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://braingodkali.github.io/linuxshang-ji-ge-shen-xian-qq-deepin-wine-qqvscode-qqicalingua.html"/>
         <id>https://braingodkali.github.io/linuxshang-ji-ge-shen-xian-qq-deepin-wine-qqvscode-qqicalingua.html</id>
 
-        <updated>2022-07-01T14:29:13+08:00</updated>
+        <updated>2022-07-01T15:37:31+08:00</updated>
             <summary>
                 <![CDATA[
                     这几天闲着没事去archwikiCN，结果发现几个神仙QQ。 一个deepin的linux QQ，其实就是wine+windowsQQ，估计也是大多数人使用的linuxQQ。ubuntu或debian需要安装deepin-wine-ubuntu 传送门 git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git cd deepin-wine-ubuntu 解压后切换到解压文件目录，在终端中运行（授予可执行权限后） ./install.sh KDE或其他按照普通安装方式安装后运行出现X错误的桌面环境执行 ./KDE-install.sh 本地安装deepin-wine的官方最新环境(目前2.18-22版本/仅ubuntu测试) ./install_2.8.22.sh （2）安装应用 下载并安装所需要的deepin-wine容器 （建议在终端下使用dpkg -i安装容器，否则容易误报依赖错误） 可使用deepin发布的最新版容器安装包：&hellip;
