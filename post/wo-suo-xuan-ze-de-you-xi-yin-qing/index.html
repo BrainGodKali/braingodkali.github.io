@@ -1,0 +1,2738 @@
+<!doctype html>
+<html amp lang="zh-Hans">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="在今年暑假，我正式接触游戏开发，但游戏开发不可能直接写代码，所以就要用游戏引擎，但市面上太多选择了，我将会用我的经历告诉你我的选择。
+1:虚幻引擎（Unreal Engine 简称UE）
+
+介绍（来自某度百科）
+“虚幻引擎 是由游戏公司EP..." />
+<link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+<link rel="preconnect dns-prefetch" href="https://cdn.jsdelivr.net/" crossorigin>
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<title>我所选择的游戏引擎 | 脑神卡里(BrainGod_Kacry)</title>
+
+
+  
+<style amp-custom>
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+	font-family: 'PT Serif',-apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif, serif;
+	background: white;
+}
+*:focus{
+    outline: none;
+}
+@font-face {
+    font-family: 'iconfont';
+    src: url('https://cdn.jsdelivr.net/gh/jiansing/gridea-theme-inlineamp/inlineamp/assets/media/fonts/iconfont.eot?20200105#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/jiansing/gridea-theme-inlineamp/inlineamp/assets/media/fonts/iconfont.woff2?20200105') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/jiansing/gridea-theme-inlineamp/inlineamp/assets/media/fonts/iconfont.woff?20200105') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/jiansing/gridea-theme-inlineamp/inlineamp/assets/media/fonts/iconfont.ttf?20200105') format('truetype'),
+        url('https://cdn.jsdelivr.net/gh/jiansing/gridea-theme-inlineamp/inlineamp/assets/media/fonts/iconfont.svg?20200105#iconfont') format('svg');
+}
+@font-face {
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('PT Serif'), local('PTSerif-Regular'), url('https://cdn.jsdelivr.net/gh/jiansing/gridea-theme-inlineamp/inlineamp/assets/media/fonts/ptserif.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.iconfont {
+    font-family: "iconfont";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* CSS reset */
+textarea,
+input[type="password"],
+input[type="text"],
+input[type="url"],
+input[type="email"],
+input[type="submit"]
+{
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+header {
+    width: 100vw;
+    background: #222222;
+    display: flex;
+    justify-content: center;
+}
+.top-container {
+    width: 71.4286vw;
+    height: 100%;
+}
+.title-menus-area {
+    display: flex;
+    width: 100%;
+    height: 5.8095vw;
+    justify-content: space-between;
+}
+.blog-title {
+    display: flex;
+    font-size: 1.6667vw;
+    font-weight: bold;
+    color: white;
+    margin-top: 1.2857vw;
+    white-space: nowrap;
+    text-decoration: none;
+    line-height: 1.6667vw;
+}
+.tagline {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.tagline-main {
+    color: white;
+    font-size: 2.9286vw;
+    margin-bottom: 1.6667vw;
+    line-height: 2.9286vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tagline-main:after {
+    content: '';
+    display: flex;
+    background: #F6F8FA;
+    width: 4.7619vw;
+    height: 0.2381vw;
+    margin-top: 1.6667vw;
+}
+.tagline-sub {
+    color: #8A8A8A;
+    font-size: 0.9524vw;
+    line-height: 1.6667vw;
+    margin-bottom: 3.5119vw;
+}
+.tagline-sub a {
+    text-decoration: none;
+    color: unset;
+}
+.tagline-sub a:hover {
+    color: #DBB302;
+}
+/* go top button */
+.scrolltop-wrap {
+    box-sizing: border-box;
+    position: absolute;
+    top: 11.6667vw;
+    right: -3.9048vw;
+    bottom: 0;
+}
+.go-top {
+    width: 2.9762vw;
+    height: 2.9762vw;
+    font-size: 1.1905vw;
+    text-decoration: none;
+    background: #DBB302;
+    border-radius: 100%;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    
+    position: fixed;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -5.9524vw;
+    transform: translateY(100vh);
+    overflow: hidden;
+}
+@media only screen and (max-width: 640px){
+    .top-container {
+        width: 100%;
+    }
+    .title-menus-area {
+        padding-top: 4.6667vw;
+        height: auto;
+        position: relative;
+    }
+    .blog-title { 
+        margin-top: 0;
+        margin-left: 5.3333vw;
+        font-size: 3.7333vw;
+        line-height: 3.7333vw;
+    }
+    .tagline {
+        margin: 6vw auto 0 auto;
+        width:89.3333vw;
+    }
+    .tagline-main {
+        font-size: 5.0667vw;
+        line-height: 5.0667vw;
+        margin-bottom: 2vw;
+    }
+    .tagline-main:after {
+        width: 8.8vw;
+        height: 0.44vw;
+        margin-top: 3.0667vw;
+    }
+    .tagline-sub {
+        font-size: 2.9333vw;
+        line-height: 5.1333vw;
+    }
+    .scrolltop-wrap {
+        display: none;      
+    }
+}/* top menu */
+.top-menus {
+    display: flex;
+    padding-right: 1.7619vw;
+    padding-top: 1.5833vw;
+    height: 0.9524vw;
+}
+.top-menus>nav>ul>li {
+    display: flex;
+    list-style: none;
+    margin-left: 2.393vw;
+    margin-bottom: 0.2976vw;
+    position: relative;
+    height: 1.9644vw;
+}
+.top-menus>nav>ul>li>a{
+    color: white;
+    font-size: 0.9524vw;
+    line-height: 0.9524vw;
+    text-decoration: none;
+}
+.top-menus .menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    list-style: none;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+/* sub menu */
+.top-menus>nav>ul>li.menu-item-has-children>a:after {
+    font-family: "iconfont";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '\e62b';
+    margin-left: 0.5952vw;
+    font-size: 0.9524vw;
+}
+.top-menus>nav>ul>li:hover a {
+    color: #DBB302;
+}
+.top-menus>nav>ul>li:hover>ul {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.2s all ease;
+}
+.top-menus>nav>ul>li>.sub-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top:1.9345vw;
+    display: flex;
+    flex-direction: column;
+    background: #2A2A2A;
+    border: #4A4A4A 0.0595vw solid;
+    padding-top: 0.4167vw;
+    padding-bottom: 0.4167vw;
+    padding-left: 1.2501vw;
+    padding-right: 1.2501vw;
+    z-index: 1;
+    overflow:hidden;   
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s all ease; 
+}
+.top-menus>nav>ul>li>.sub-menu>li {
+    list-style:none;
+    border-bottom: #4A4A4A 0.0595vw solid;
+}
+.top-menus>nav>ul>li>.sub-menu>li:last-child {
+    border-bottom: 0
+}
+.top-menus ul>li>.sub-menu>li>a {
+    font-size: 0.8333vw;
+    line-height: 0.8333vw;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    min-height: 2.4405vw;
+    display: flex;
+    align-items: center;
+}
+/* third level menu */
+.top-menus>nav>ul>li>.sub-menu>li ul {
+    padding-left: 0.893vw;
+}
+.top-menus>nav>ul>li>.sub-menu>li>ul li {
+    list-style:none;
+}
+.top-menus>nav>ul>li>.sub-menu>li ul li a{
+    color: rgba(255,255,255,0.4);
+    min-height: unset;
+    margin-bottom: 0.6548vw;
+}
+.top-menus>nav>ul>li>.sub-menu>li ul li a:before {
+    content: '-';
+    margin-right: 0.2976vw;
+}
+.top-menus>nav>ul>li>.sub-menu>li a:hover {
+    color: #DBB302;
+}
+#header-menu-button {
+    display: none;
+}
+@media only screen and (max-width: 640px){
+    /* expand menu */
+    #header-menu-button + header .top-menus {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        height: auto;
+        top: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+    #header-menu-button:checked + header .top-menus {
+        pointer-events: auto;
+    }
+    #header-menu-button:checked + header .top-menus nav>ul{
+        padding-left: 4vw;
+        padding-right: 4vw;
+        opacity: 1;
+        visibility: visible;
+        padding-bottom: 16vw;
+    }
+    #header-menu-button + header .top-menus nav>ul {
+        min-height: 100vh;
+        position:fixed;
+        top: 0;
+        bottom: 0;
+        overflow: scroll;
+        flex-wrap: nowrap;
+        opacity: 0;
+        transition: 0.6s all ease;
+        visibility: hidden;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        background: #222222;
+        justify-content: start;
+        padding-top: 0;
+        padding-bottom: 4.1333vw;
+        box-sizing: border-box;
+    }
+    #header-menu-button + header .top-menus nav>ul>li{
+        margin: 0;
+        height: auto;
+        padding-left: 1.3333vw;
+        padding-right: 1.3333vw;
+        border-bottom: 0.1333vw #4A4A4A solid;
+        flex-direction: column;
+        padding-top: 4.0667vw;
+        padding-bottom: 4.0667vw;
+    }
+    #header-menu-button + header .top-menus nav>ul>li:first-child>a {
+        padding-top: 0;
+    }
+    #header-menu-button + header .top-menus nav>ul>li:last-child {
+        border-bottom: none;
+    }
+    #header-menu-button + header .top-menus nav>ul>li>a {
+        font-size: 3.7333vw;
+        line-height: 3.7333vw;
+    }
+    .top-menus>nav>ul>li.menu-item-has-children>a:after {
+        display: none;
+    }
+    ul#menu-top-menu li {
+        display: inline-flex;
+        white-space: normal;
+    }
+    .top-menus>nav>ul>li>.sub-menu {
+        display: flex;
+        transform: none;
+        position: relative;
+        left: 0;
+        margin-top: 0;
+        margin-bottom: 4vw;
+        background: inherit;
+        border: none;
+        padding: 0;
+        padding-left: 3vw;
+        opacity: 1;
+        visibility: visible;
+    }
+    .top-menus>nav>ul>li:hover a {
+        color: white;
+    }
+    .top-menus>nav>ul li a:hover {
+        color: #DBB302;
+    }
+    .top-menus>nav>ul>li>.sub-menu>li {
+        border: none;
+        margin-top: 3.7067vw;
+        flex-direction: column;
+    }
+    .top-menus>nav>ul>li>.sub-menu>li>a:before {
+        content: '-';
+        margin-right: 0.8vw;
+        color: rgba(255,255,255,0.4);
+    }
+    .top-menus>nav>ul>li>.sub-menu>li ul {
+        padding-left: 3vw;
+    }
+    .top-menus>nav>ul>li>.sub-menu>li ul li a {
+        margin-bottom: 0;
+        margin-top: 3.7067vw;
+    }
+    .top-menus ul>li>.sub-menu>li>a {
+        font-size: 3.7333vw;
+        line-height: 3.7333vw;
+        color: rgba(255,255,255,0.4);
+    }
+    #header-menu-button{
+        display:flex;
+        margin: 0;
+        -webkit-appearance: none;
+        appearance: none;
+        line-height: 3.7333vw;
+        width: 4vw;
+        height: 4vw;
+        z-index: 2;
+        position: absolute;
+        right: 4vw;
+        top: 4vw;
+        border: none;
+        background: transparent;
+    }
+    /* hide for menu scroll */
+    #header-menu-button:checked + header + main {
+        animation: mainhide 2s ease;
+        animation-fill-mode: forwards; 
+        -webkit-animation-fill-mode: forwards; 
+        overflow: hidden;
+    }
+    @keyframes mainhide {
+        from {
+            max-height: auto;
+        }
+        to {
+            overflow: hidden;
+            max-height: 0;
+        }
+    }
+    #header-menu-button:checked {
+        position: fixed;
+    }
+    #header-menu-button:checked:after{
+        display: flex;
+        content: '\e63c';
+        transform: scale(0.7);
+    }
+    #header-menu-button:after{
+        content: '';  
+        color: white;
+        font-family: "iconfont";
+        font-size: 5.3333vw;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: '\e63e';
+    }
+}            
+/* body content */
+main {
+    width: 71.4286vw;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding-top: 2.9762vw;
+    position: relative;
+}
+.main-container {
+    width: 48.2143vw;
+}
+.list-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.9762vw;
+}
+.title-img {
+    width: 48.2143vw;
+    height: 17.8571vw;
+    position: relative;
+}
+.title-img amp-img.contain img {
+    object-fit: cover;
+    object-position: top;
+    transition: all .5s;
+}
+a.title-img:hover amp-img.contain img {
+    object-fit: cover;
+    transform: scale(1.08);
+    -webkit-transform: scale(1.08);
+    -moz-transform: scale(1.08);
+}
+.post-info {
+    position: relative;
+    padding-left: 1.7857vw;
+    padding-top: 1.5119vw;
+    padding-right: 1.7857vw;
+    padding-bottom: 1.7857vw;
+    width: 48.2143vw;
+    border: 0.0595vw solid #E6E6E6;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.post-cate {
+    font-size: 0.9524vw;
+    line-height: 1.5476vw;
+    color: #DBB302;
+    text-decoration: none;
+    margin-right: 0.9644vw;  
+    display: flex;
+    align-items: center;
+}
+.sticky-tag {
+    display: flex;
+    align-items: center;  
+    color: #DBB302;
+}
+.post-cate:before,
+.sticky-tag:before {
+    display: flex;
+    content: '';
+    width:0.0595vw;
+    min-width: 1px;
+    height: 0.6548vw;
+    background: #DBB302; 
+    margin-right: 0.9524vw;       
+}
+.post-cate:first-child:before {
+    display: none;
+}
+.sticky-tag .sticky-text {
+    font-size: 0.9524vw;
+    text-transform: uppercase;
+}
+.sticky-tag .sticky-text:before {
+    font-family: "iconfont";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '\e63f';
+    font-size: 0.9524vw;
+    margin-right: 0.4167vw;
+}
+.post-title {
+    font-size: 1.3613vw;
+    line-height: 2.381vw;
+    margin-top: 0.5952vw;
+    margin-bottom: 0;
+    width: 39.881vw;
+    word-break: break-all;
+}
+.post-title:after {
+    display: flex;
+    content: '';
+    width: 4.1667vw;
+    height: 0.2976vw;
+    background: #DBB302;
+    margin-top: 0.7321vw;
+}
+.post-title a {
+    text-decoration: none;
+    color: #000000;
+}
+.post-excerpt {
+    margin-top: 1.4286vw;
+    margin-bottom: 1.1905vw;
+    font-size: 0.9524vw;
+    line-height: 1.6667vw;
+    color: #8A8A8A;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+	overflow: hidden;
+	visibility:visible;
+}
+.flex-box {
+    display: flex;
+    align-items: center;
+}
+.meta-category {
+    flex-wrap: wrap;
+    padding-right: 4.1667vw;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.read-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8333vw;
+    line-height: 0.8333vw;
+    text-decoration: none;
+    min-width: 9.1667vw;
+    min-height: 2.1429vw;
+    box-sizing: border-box;
+    padding-left: 1.1905vw;
+    padding-right: 1.1905vw;
+    padding-top: 0.7143vw;
+    padding-bottom: 0.7143vw;
+    color: #DBB302;
+    border: 0.0595vw #DBB302 solid;
+    transition: all .2s;
+    text-transform: uppercase;
+}
+.read-more:hover {
+    background: #DBB302;
+    color: white;
+}
+.icon-ml-readmore {
+    margin-left: 0.625vw;
+    font-size: 1.1905vw;
+}
+.post-meta-box {
+    margin-top: 0.7143vw;
+    font-size: 0.8333vw;
+}
+.post-meta {
+    font-size: 0.8333vw;
+    color: #1A1A1A;
+    text-decoration: none;
+    margin-left: 1.4881vw;
+    display: inline-flex;
+    align-items: center;
+}
+.icon-mr-postmeta {
+    margin-right: 0.5952vw;
+    font-size: 1.4881vw;
+}
+.post-meta .icon-like-sp {
+    font-size: 1.1905vw;
+}
+.post-meta-box a.edit-link:after {
+    content: '';
+    display: flex;
+    background: #979797;
+    margin-left: 1.4881vw;
+    width: 0.0595vw;
+    height: 0.6548vw;
+}
+.post-publish-date {
+    width: 4.1667vw;
+    height: 4.7619vw;
+    background: #F6F6F7;
+    position: absolute;
+    right: 1.2501vw;
+    top: -0.8333vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.post-publish-date .post-date {
+    color: #DBB302;
+    font-size: 1.3095vw;
+    line-height: 2.2916vw;
+    font-weight: bold;
+}
+.post-publish-date .post-month {
+    color: #000000;
+    font-size: 0.8333vw;
+    line-height: 1.4583vw;
+    text-transform: uppercase;
+}
+.list-box:last-child {
+    margin-bottom: 2.381vw;
+}
+.pagination .screen-reader-text {
+    display: none;
+}
+.nav-links {
+	margin-top: 2.9762vw;
+    margin-bottom: 2.9762vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.nav-links .page-numbers,.nav-links .post-page-numbers {
+    min-width: 2.1429vw;
+    height: 2.1429vw;
+    border: 0.0595vw #DBB302 solid;
+    color: #DBB302;
+    font-size: 1.0714vw;
+    line-height: 1.0714vw;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.4762vw;
+    margin-right: 0.4762vw;
+    margin-bottom: 0.4762vw;
+    box-sizing: border-box;
+}
+.nav-links .current, .nav-links a.page-numbers:hover,.nav-links a.post-page-numbers:hover {
+    background: #DBB302;
+    color: white;
+}
+.pagination>.nav-links>.dots {
+    border: none;
+    padding-bottom: 0.5714vw;
+}
+@media only screen and (max-width: 640px){
+    /* main body */
+    main {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 6.6667vw;
+    }
+    .main-container {
+        width: 92vw;
+    }
+    .title-img {
+        width: 92vw;
+        height: 34.1333vw;
+    }
+    .post-info {
+        width: 92vw;
+        padding: 3.4667vw;
+        border: 0.2667vw solid #E6E6E6;
+    }
+    .post-publish-date {
+        width: 10.6667vw;
+        height: 12.1333vw;
+        top: -2vw;
+        right: 2.8vw;
+    }
+    .post-publish-date .post-date {
+        font-size: 3.4667vw;
+        line-height: 6.0667vw;
+    }
+    .post-publish-date .post-month {
+        font-size: 2.1333vw;
+        line-height: 3.7333vw;
+    }
+    .post-cate {
+        font-size: 3.4667vw;
+        line-height: 4.8vw;
+        margin-right: 2.2133vw;
+    }
+    .post-cate:before,
+    .sticky-tag:before {
+        width: 0.1333vw;
+        height: 1.8933vw;
+        margin-right: 2.2vw;
+    }
+    .sticky-tag .sticky-text {
+        font-size: 2.9333vw;
+        line-height: 2.9333vw;
+    }
+    .sticky-tag .sticky-text:before {
+        font-size: 2.8vw;
+        margin-right: 2vw;
+    }
+    .post-title {
+        margin-top: 2.5333vw;
+        margin-bottom: 0;
+        font-size: 4.8vw;
+        line-height: 6.6667vw;
+        width: 74.4vw;
+    }
+    .post-title:after {
+        width: 9.3333vw;
+        height: 0.8vw;
+        margin-top: 2.2667vw;
+    }
+    .post-excerpt {
+        margin-top:3.3333vw;
+        margin-bottom: 3.3333vw;
+        font-size: 4vw;
+        line-height: 5.6vw;
+    }
+    .read-more {
+        font-size: 2.4533vw;
+        line-height: 2.4533vw;
+        min-width: 26.4933vw;
+        min-height: 6.1333vw;
+        padding-left: 3.7333vw;
+        padding-right: 3.7333vw;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+        border: 0.1333vw #DBB302 solid;
+    }
+    .icon-ml-readmore {
+        margin-left: 1.3333vw;
+        font-size: 3.3333vw;
+    }
+    .post-meta {
+        font-size: 2.1333vw;
+        margin-left: 3.2vw;
+    }
+    .icon-mr-postmeta {
+        margin-right: 1.8667vw;
+        font-size: 3.4667vw;
+    }
+    .post-meta-box a.edit-link:after {
+        margin-left: 3.2133vw;
+        width: 0.1333vw;
+        height: 1.68vw;
+    }
+    .post-meta .icon-like-sp {
+        font-size: 2.4vw;
+    }
+    .list-box {
+        margin-bottom: 5.3333vw;
+    }
+    .nav-links .page-numbers,.nav-links .post-page-numbers {
+        min-width: 8vw;
+        height: 8vw;
+        border: 0.1333vw #DBB302 solid;
+        font-size: 4vw;
+        line-height: 4vw;
+        margin-left: 1.7733vw;
+        margin-right: 1.7733vw;
+        margin-bottom: 1.7733vw;
+    }
+    .pagination>.nav-links>.dots {
+        padding-bottom: 2.6667vw;
+    }
+    .list-box:last-child {
+        margin-bottom: 5.3333vw;
+    }
+    .meta-category {
+        flex-wrap: wrap;
+        padding-right: 10.6667vw;
+    }
+}  
+.sidebar {
+    width: 19.6429vw;
+    min-height: 29.7619vw;
+}
+.sidebar>aside:first-child {
+    margin-top: 0;
+}
+.widget {
+    width: 100%;
+}
+.widget-title {
+    color: black;
+    font-size: 1.0714vw;
+    line-height: 1.0714vw;
+    margin-top: 0;
+    margin-bottom: 1.6667vw;
+    text-transform: uppercase;
+}
+.widget-title:after {
+    display: flex;
+    margin-top: 1.1131vw;
+    content: '';
+    width: 3.7501vw;
+    height: 0.119vw;
+    min-height: 1.5px;
+    background: #DEDEDE;
+}
+.widget {
+    border-bottom: 0.0595vw #EBEBEB solid;
+    padding-bottom: 2.1429vw;
+    margin-bottom: 2.9762vw;
+}
+.widget:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+.widget>ul {
+    overflow-wrap: break-word;
+    margin: 0;
+    padding-left: 0;
+    
+}
+.widget_categories>ul>li>ul.children>li.cat-item {
+    color: black;
+    font-size: 0.9524vw;
+    margin-top: 1.1905vw;
+}
+.widget_categories>ul>li>ul.children>li.cat-item ul.children li {
+    color: black;
+    font-size: 0.9524vw;
+    margin-top: 0.9524vw;
+}
+.widget_categories>ul>li.cat-item:before {
+    content: '\e641';
+    font-family: "iconfont";
+    color: #DBB302;
+    font-size: 0.9524vw;
+    margin-right: 0.7143vw;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.widget_categories>ul>li>ul.children {
+    padding-left: 1.4286vw;
+}
+.widget_categories>ul>li>ul.children>li>ul.children {
+    padding-left: 2.619vw;
+}
+.widget_categories>ul>li>ul.children>li>ul.children>li ul {
+    padding-left: 1.3095vw;
+}
+.widget_categories ul.children {
+    padding-left: 0.2976vw;
+    display: flex;
+    flex-direction: column;
+}
+.widget_categories>ul>li>ul.children>li:before {
+    content: "\e642";
+    display: inline-flex;
+    font-family: "iconfont";
+    color: #DBB302;
+    font-size: 0.9524vw;
+    margin-right: 0.5952vw;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.widget_categories li.cat-item a {
+    color: black;
+    text-decoration: none;
+}
+.widget_categories ul{
+    list-style: none;
+}
+.widget_categories .screen-reader-text {
+    display: none;
+}
+/* common widgets */
+.widget ul li{
+    font-size: 0.9524vw;
+    line-height: 1.5476vw;
+    margin-top: 1.25vw;
+    list-style: none;
+    position: relative;
+    padding-left: 1.6667vw;
+}
+.widget ul li:first-child {
+    margin-top: 0;
+}
+.widget ul li a {
+    color: black;
+    text-decoration: none;
+}
+.widget ul li a:hover {
+    color: #DBB302;
+}
+.widget>ul>li:before {
+    content: '\e62d';
+    font-family: "iconfont";
+    color: #DBB302;
+    font-size: 0.893vw;
+    margin-right: 0.7143vw;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    left: 0;
+}
+.widget .screen-reader-text {
+    display: none;
+}
+/* search widgets */
+.widget_search form {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+.widget_search {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.widget_search form input[type='text'] {
+    width: 19.5833vw;
+    height: 2.6787vw;
+    border: 0.0595vw #E6E6E6 solid;
+    border-radius: 0.2381vw;
+    padding-left: 1.1905vw;
+    padding-right: 2.9762vw;
+    font-size: 0.8333vw;
+}
+.widget_search form input[type='text']::placeholder {
+    font-size: 0.8333vw;
+    color: #8A8A8A;
+}
+.widget_search form button[type='submit'] {
+    position: absolute;
+    right: 0;
+    padding: 0;
+    border: none;
+    background: unset;
+    z-index: 1;
+    cursor:pointer;
+}
+.widget_search form button[type='submit']:before {
+    content: '\e62c';
+    font-family: "iconfont";
+    color: #B0B0B0;
+    font-size: 1.7857vw;
+    margin-right: 0.7143vw;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* profile widgets */
+.widget_profile {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+.widget_profile .profile-box {
+    width:19.6429vw;
+    min-height:9.2262vw;
+    border:0.0595vw #E6E6E6 solid;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 2.6787vw;
+}
+.widget_profile .profile-avatar {
+    width: 5.3571vw;
+    height: 5.3571vw;
+    position: absolute;
+    top: -2.6787vw;
+}
+.widget_profile .profile-avatar img {
+    border-radius: 100%;
+}
+.widget_profile .profile-content {
+    font-size: 0.9524vw;
+    padding: 2.9762vw 1.6667vw 1.9048vw 1.6667vw;
+    width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+    line-height: 1.8;
+}
+.widget_profile .profile-content li {
+    margin-top: 0.5952vw;
+}
+.widget_profile  ol, .widget_profile ul {
+    padding-left: 0.9524vw;
+    margin-top: 0.5952vw;
+    margin-bottom: 0.5952vw;
+}
+.widget_profile  .profile-content p {
+    margin-block-start: auto;
+    margin-block-end: auto;
+    margin-top: 0.5952vw;
+}
+.widget_profile img {
+    max-width: 100%;
+    height: auto;
+}
+.widget_profile .wp-video, .widget_profile .wp-video video{
+    max-width: 100%;
+    height: auto;
+}
+.widget_profile a {
+    font-size: 0.9524vw;
+    color: #DBB302;
+    text-decoration: none;
+}
+.widget ul li span, .widget ul li a {
+    color: black;
+}
+.widget ul li span.post-date {
+    color: #888888;
+    font-style: italic;
+}
+li.recentcomments {
+    color: #888888;
+}
+@media only screen and (max-width: 640px){
+    /* side bar */
+    .sidebar {
+        width: 92vw;
+        margin-top: 8vw;
+    }
+    .widget_profile .profile-box {
+        width: 92vw;
+        margin-top: 12.5333vw;
+        border: 0.2667vw #E6E6E6 solid;
+    }
+    .widget_profile .profile-avatar {
+        width: 25.0667vw;
+        height: 25.0667vw;
+        top: -12.5333vw;
+    }
+    .widget_profile .profile-content{
+        font-size: 4vw;
+        line-height: 5.8667vw;
+        padding: 17.8667vw 8.0667vw 4.8267vw 8.0667vw;
+    }
+    .widget_profile .profile-content li {
+        font-size: 4vw;
+        line-height: 5.8667vw;
+        margin-top: 1.3333vw;
+        list-style: unset;
+    }
+    .widget_profile  ol, .widget_profile ul {
+        padding-left: 2.1333vw;
+        margin-top: 1.3333vw;
+        margin-bottom: 1.3333vw;
+    }
+    .widget_profile  .profile-content p {
+        margin-block-start: auto;
+        margin-block-end: auto;
+        margin-top: 1.3333vw;
+    }
+    .widget_profile img {
+        max-width: 100%;
+        height: auto;
+    }
+    .widget_profile a {
+        font-size: 4vw;
+        color: #DBB302;
+        text-decoration: none;
+    }
+    .widget_search {
+        margin-top: 8vw;
+        margin-bottom: 8vw;
+    }
+    .widget_search form input[type='text'] {
+        width: 92vw;
+        height: 10.6667vw;
+        border: 0.2667vw #E6E6E6 solid;
+        border-radius: 0.5333vw;
+        padding-left: 5.3333vw;
+        padding-right: 6.6667vw;
+        font-size: 4vw;
+    }
+    .widget_search form input[type='text']::placeholder {
+        font-size: 4vw;
+    }
+    .widget_search form button[type='submit']:before {
+        font-size: 6.4vw;
+        margin-right: 4.1333vw;
+    }
+    .widget {
+        border-bottom: 0.2667vw #EBEBEB solid;
+        padding-bottom: 8.0667vw;
+        margin-bottom: 8.0667vw;
+    }
+    .widget_search,.widget_profile {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .widget:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+    .widget-title {
+        font-size: 4.5333vw;
+        line-height: 4.5333vw;
+        margin-bottom: 7.4133vw;
+    }
+    .widget-title:after {
+        margin-top: 4.5067vw;
+        width: 15.2133vw;
+        height: 0.48vw;
+    }
+    .widget_categories>ul>li.cat-item:before {
+        font-size: 3.6vw;
+        margin-right: 2.8933vw;
+    }
+    .widget ul li {
+        font-size: 4vw;
+        line-height: 6.6667vw;
+        margin-top: 4vw;
+        padding-left: 6.6667vw;
+    }
+    .widget_categories>ul>li>ul.children {
+        padding-left: 3.7333vw;
+    }
+    .widget_categories>ul>li>ul.children>li:before {
+        font-size: 4vw;
+        margin-right: 1.3333vw;
+    }
+    .widget_categories>ul>li>ul.children>li.cat-item {
+        font-size: 3.3333vw;
+        margin-top:2.6667vw;
+    }
+    .widget_categories>ul>li>ul.children>li>ul.children {
+        padding-left: 6.6667vw;
+    }
+    .widget_categories>ul>li>ul.children>li.cat-item ul.children li {
+        font-size: 3.3333vw;
+        margin-top:2.6667vw;
+    }
+    .widget>ul>li:before {
+        font-size: 3.6vw;
+        margin-right: 2.5333vw;
+    }
+}  
+/* common bottom */
+footer {
+    width: 100vw;
+    background: #222222;
+    display: flex;
+    justify-content: center;
+}
+.footer-container {
+    width: 71.4286vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer-container .footer-copyright {
+    margin-bottom: 1.1905vw;
+    margin-top: 2.893vw;
+}
+.footer-container .footer-copyright, .footer-container .footer-copyright a{
+    text-align: center;
+    font-size: 0.8333vw;
+    color: #8A8A8A;
+    line-height: 0.5952vw;
+    text-decoration: none;
+}
+.footer-menus>nav {
+    margin-top: 2.893vw;
+    margin-bottom: 0.875vw;
+}
+.footer-menus>nav>ul {
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+.footer-menus>nav>ul>li {
+    font-size: 1.0714vw;
+    line-height: 1.0714vw;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+}
+.footer-menus>nav>ul>li>a:after {
+    display: flex;
+    content: '';
+    margin-top: 0.7798vw;
+    width: 2.381vw;
+    height: 0.119vw;
+    background: #444444;
+}
+.footer-menus>nav>ul>li>a {
+    color: #DBB302;
+}
+.footer-menus>nav a {
+    text-decoration: none;
+    font-size: 1.0714vw;
+}
+.footer-menus>nav ul, .footer-menus>nav li {
+    list-style: none;
+    justify-content: space-around;
+    justify-content: space-evenly;
+    display: flex;
+    padding-left: 0;
+}
+.footer-menus>nav>ul>li .sub-menu {
+    display: flex;
+    flex-direction: column;
+    text-transform: none;
+}
+.footer-menus>nav>ul>li ul li {
+    margin-top: 1.2143vw;
+    line-height: 0.9524vw;
+    display: flex;
+    justify-content: start;
+}
+.footer-container a:hover {
+    color:#DBB302;
+}
+.footer-menus>nav>ul>li ul li:first-child {
+    margin-top: 0.893vw;
+}
+.footer-menus>nav>ul>li ul li a{
+    font-size: 0.9524vw;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+}
+@media only screen and (max-width: 640px){
+    /* footer */
+    .footer-container {
+        width: 100%;
+        padding-top: 8.1333vw;
+        padding-bottom: 5.3333vw;
+    }
+    .footer-menus>nav>ul>li {
+        font-size: 3.7333vw;
+        line-height: 3.7333vw;
+        margin-bottom: 13.3333vw;
+        min-width: 33.4667vw;
+        margin-left: 4vw;
+        margin-right: 4vw
+    }
+    .footer-menus>nav a {
+        font-size: 3.7333vw;
+    }
+    .footer-menus>nav>ul>li>a:after {
+        margin-top: 2.8vw;
+        width: 8.5467vw;
+        height: 0.4267vw;
+    }
+    .footer-menus>nav>ul>li ul li:first-child {
+        margin-top: 3.1733vw;
+    }
+    .footer-menus>nav>ul>li ul li {
+        margin-top: 4.3067vw;
+        font-size: 3.4667vw;
+        line-height: 3.4667vw;
+    }
+    .footer-menus>nav>ul>li ul li a {
+        font-size: 3.4667vw;
+    }
+    .footer-menus>nav>ul {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 8.5334vw 0 8.5334vw;
+    }
+    .footer-menus>nav {
+        margin: 0;
+    }
+    .footer-container .footer-copyright, .footer-container .footer-copyright a {
+        font-size: 2.9333vw;
+        line-height: 2.9333vw;
+    }
+    .footer-container .footer-copyright p {
+        margin-top: 0;
+    }
+    .footer-container .footer-copyright {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+    .content {
+        word-break: break-word;
+    }
+    .content * {
+        max-width: 100%;
+    }
+    hr {
+        border: none;
+        background: #e6e6e6;
+        width: 100%;
+        height: 0.0595vw;
+        margin-top: 2.381vw;
+        margin-bottom: 2.381vw;
+    }
+    .post-password-form>p>label>input {
+        margin-left: 0.893vw;
+        margin-right: 0.8333vw;
+        width: 19.0476vw;
+        height: 2.381vw;
+        border-radius: 0.2381vw;
+        border: 0.0595vw #E6E6E6 solid;
+        padding-left: 1.1905vw;
+        padding-right: 1.1905vw;
+        vertical-align: middle
+    } 
+    .post-password-form>p>input {
+        font-size: 0.9524vw;
+        color: white;
+        background: #464646;
+        border-radius: 0.2381vw;
+        padding: 0.8452vw 1.131vw 0.8452vw 1.131vw;
+        border: none;
+    }
+    .content figure{
+        margin: 0;
+    }
+    h2.article-title {
+        margin-top: 1.3095vw;
+        font-size: 1.9048vw;
+        line-height: 2.8571vw;
+        margin-bottom: 1.9048vw;
+    }
+    h2.article-title a {
+        color: black;
+        text-decoration: none;
+    }
+    .article-info .post-meta-box {
+        margin-top: 0;
+    }
+    .article-info .post-meta-box a.edit-link:after {
+        display: none;
+    }
+    .article-info .post-meta-box a.edit-link:before {
+        content: '';
+        display: flex;
+        background: #979797;
+        margin-right: 1.4881vw;
+        width: 0.0595vw;
+        height: 0.6548vw;
+    }
+    .article-info .post-meta:first-child {
+        margin-left: 0;
+    }
+    .article-info .post-meta-box {
+        margin-bottom: 0.9524vw;
+    }
+    .content blockquote {
+        margin-left:0;
+        margin-right:0;
+        margin-top: 1.4286vw;
+        margin-bottom: 1.4286vw;
+        position: relative;
+        padding-left: 3.5714vw;
+    }
+    .content blockquote p {
+        margin: 0;
+        font-size: 1.3095vw;
+        line-height: 1.9048vw;
+        color: black;
+    }
+    .content blockquote:before {
+        content: '\e648';
+        font-family: "iconfont";
+        color: #E6E6E6;
+        font-size: 2.1072vw;
+        margin-right: 1.6667vw;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        left: 0;
+    }
+    .content h1,
+    .content h2,
+    .content h3,
+    .content h4,
+    .content h5,
+    .content h6 {
+        margin-top: 1.7857vw;
+        margin-bottom: 1.7857vw;
+    }
+    .content h1 {
+        font-size: 1.6667vw;
+    }
+    .content h2 {
+        font-size: 1.5476vw;
+    }
+    .content h3 {
+        font-size: 1.4286vw;
+    }
+    .content h4 {
+        font-size: 1.3095vw;
+    }
+    .content h5 {
+        font-size: 1.1905vw;
+    }
+    .content h6 {
+        font-size: 1.0714vw;
+    }  
+    .content p {
+        margin-top: 2.0238vw;
+        margin-bottom: 2.0238vw;
+        font-size: 1.0714vw;
+        line-height: 1.9048vw;
+        color: #666666;
+        display: flex;
+    } 
+    .content .aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+    }
+    .content>figure {
+        margin: 2.0238vw 0 2.0238vw 0;
+    }
+	
+	.blocks-gallery-item figure img{
+		display: flex;
+	}
+    .content ul, .content ol {
+        padding-left: 1.4881vw;
+        font-size: 1.0714vw;
+        line-height: 1.9048vw;
+        margin-top: 2.0238vw;  
+        margin-bottom: 2.0238vw;  
+    }
+    .content figcaption {
+        font-size: 1.1905vw;
+        color: #666666;
+        text-align: center;
+        margin-top: 0.2976vw;
+    }
+    .wp-block-cover {
+        margin: 2.0238vw 0 2.0238vw 0;
+    }
+    .wp-block-cover-image, .wp-block-cover {
+        position: relative;
+        background-color: #000;
+        background-size: cover;
+        background-position: center center;
+        min-height: 25.5952vw;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .wp-block-cover-image.has-background-dim::before, 
+    .wp-block-cover.has-background-dim::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: inherit;
+        opacity: 0.5;
+        z-index: 1;
+    }
+    .wp-block-cover .wp-block-cover__inner-container p {
+        margin: 0;
+        text-align: center;
+    }
+    .wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container {
+        z-index: 1;
+        color: #f8f9f9;
+    }
+    .wp-block-cover__inner-containe,.wp-block-cover__inner-container p {
+        color:white;
+        font-size:1.7857vw;
+    }
+    figure.wp-block-gallery ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    li.blocks-gallery-item {
+        max-width: 100%;
+    }
+    .wp-block-gallery ul li figure {
+        margin: 0;
+        position: relative;
+    }
+    .wp-block-gallery ul li figure>figcaption {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        font-size: 1.1905vw;
+        line-height: 1.7857vw;
+        padding-top: 1.3542%;
+        padding-bottom: 1.0417%;
+        margin: 0;
+        color: white;
+        background: linear-gradient(to top, rgba(13,13,13,0.85), transparent);
+    }
+    .wp-block-gallery, .blocks-gallery-grid {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .wp-block-gallery ul>li {
+        margin-bottom: 0.9524vw;
+    }
+    
+    .wp-block-gallery ul>li:first-child:last-child
+    {
+        width: 100%;
+    }
+    .wp-block-gallery ul>li:first-child:nth-last-child(n+2),
+    .wp-block-gallery ul>li:first-child:nth-last-child(n+2) ~ li
+    {
+        width: calc((100% - 3%) / 2);
+    }
+    .wp-block-gallery ul>li:first-child:nth-last-child(3n),
+    .wp-block-gallery ul>li:first-child:nth-last-child(3n) ~ li
+    {
+        width: calc((100% - 3%) / 3);
+    }
+    .wp-block-file {
+        background: #F6F6F7;
+        padding-left: 1.4881vw;
+        padding-right: 1.0119vw;
+        padding-top: 1.0714vw;
+        padding-bottom: 1.0714vw;
+        margin: 2.0238vw 0 2.0238vw 0;
+        font-size: 0.9524vw;
+        line-height: 2.381vw;
+    }
+    .wp-block-file:before {
+        content: 'Download:';
+        color: black;
+        margin-right: 0.5952vw;
+    }
+    .wp-block-file a:last-child,
+    a.wp-block-file__button {
+        float: right;
+        display:flex;
+        padding: 0.7143vw 1.131vw 0.7143vw 1.131vw;
+        border: 0.0595vw #DBB302 solid;
+        line-height: 0.7619vw;
+    }
+    .wp-block-file a:last-child:hover,
+    a.wp-block-file__button:hover {
+        background: #DBB302;
+        color: white;
+    }
+    .wp-block-file a:last-child:after,
+    a.wp-block-file__button:after {
+        content: '\e645';
+        font-family: "iconfont";
+        font-size: 0.9524vw;
+        margin-left: 0.8333vw;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .content a {
+        color: #DBB302;
+        text-decoration: none;
+    }
+    .content .wp-block-code {
+        width: 100%;
+        background: #F6F6F7;
+        padding: 0.9524vw;
+        font-size: 1.1905vw;
+        line-height: 1.7857vw;
+        color: #666666;
+        box-sizing: border-box;
+    }
+    .wp-block-table table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1.1905vw;
+    }
+    .wp-block-table table td {
+        color: #666666;
+        border: 0.0595vw #cccccc solid;
+        padding: 0.4762vw;
+    }
+    .wp-block-button {
+        margin: 2.0238vw 0 2.0238vw 0;
+    }
+    .wp-block-button a {
+        text-decoration: underline;
+    }
+    .wp-block-media-text {
+        display: flex;
+        margin: 2.0238vw 0 2.0238vw 0;
+    }
+    .wp-block-media-text figure {
+        width: 50%;
+        margin: 0;
+    }
+    .wp-block-media-text .wp-block-media-text__content {
+        margin-left: 0.893vw;
+    }
+    
+    .wp-block-column {
+        flex-grow: 1;
+        min-width: 0;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    .wp-block-columns {
+        flex-wrap: nowrap;
+        display: flex;
+    }
+    .likes-form {
+        text-align: center;
+        margin-bottom: 3.5714vw;
+    }
+    .likes-button {
+        width: 4.7619vw;
+        height: 4.7619vw;
+        border-radius: 100%;
+        border: 0.0595vw solid #C4C4C4;
+        background: white;
+        color: #1A1A1A;
+        font-size: 0.8333vw;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .likes-button:hover,.likes-button-active{
+        color: #DBB302;
+    }
+    .likes-button:before {
+        content: '\e64a';
+        font-family: "iconfont";
+        font-size: 1.9048vw;
+        margin-bottom: 0.3571vw;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .likes-form .likes-button-active:before {
+        content: '\e63d';
+    }
+    .post-nav {
+        display: flex;
+        justify-content: space-between; 
+        margin-bottom: 4.5238vw;           
+    }
+    .post-nav .nav-previous a,.post-nav .nav-next a {
+        color: #c5c5c5;
+        font-size: 1.0714vw;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-flex;
+    }
+    .post-nav a.post-nav-link-active {
+        color: black;
+    }
+    .post-nav a.post-nav-link-active:hover {
+        color: #DBB302;
+    }
+    .post-nav .nav-previous a:before {
+        content: '\e640';
+        font-family: "iconfont";
+        font-size: 1.5476vw;
+        margin-right: 0.875vw;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;         
+    }
+    .post-nav .nav-next a:after {
+        content: '\e649';
+        font-family: "iconfont";
+        font-size: 1.5476vw;
+        margin-left: 0.875vw;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;         
+    }
+    .social-share {
+        display: flex;
+        max-width: 100%;
+    }
+    .social-share-box {
+        width: 2.9762vw;
+        height: 2.9762vw;
+        margin-right: 1.7857vw;
+    }
+    amp-social-share.rounded {
+        display: flex;
+        border-radius: 50%;
+        background-size: 60%;
+        color: #fff;
+        background-color: black;
+    }
+    amp-social-share.rounded:hover {
+        background-color: #DBB302;
+    }
+    .post-tags {
+        display: flex;
+        margin-top: 1.9644vw;
+	flex-wrap: wrap;
+    }
+    .post-tags a{
+        display: inline-flex;
+        background: #F2F2F2;
+        padding-left: 1.3393vw;
+        padding-right: 1.3393vw;
+        padding-top: 0.6548vw;
+        padding-bottom: 0.6548vw;
+        margin-right: 0.3571vw;
+	margin-bottom: 0.3571vw;
+        color: #666666;
+        font-size: 0.8333vw;
+        line-height: 0.8333vw;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    #comments {
+        margin-top: 4.7619vw;
+    }
+    .comments>h2 {
+        text-align: center;
+        margin-bottom: 3.5714vw;
+        font-size: 1.0714vw;
+        line-height: 1.0714vw;
+        text-transform: uppercase;
+    }
+    .comments>ul {
+        list-style: none;
+        padding-left: 0.9524vw;
+        margin-top: 0;
+        margin-bottom: 1.7857vw;
+    }
+    .comments>ul .comment-author .avatar {
+        border-radius: 100%;
+        width: 4.7619vw;
+        height: 4.7619vw;
+        position: absolute;
+        left: 0.9524vw;
+    }
+    .comments>ul cite.fn a {
+        font-weight: bold;
+        font-size: 1.0714vw;
+        color: black;
+        font-style: normal;
+    }
+    .comments>ul span.says {
+        display: none;
+    }
+    .comments>ul cite.fn {
+        font-weight: bold;
+        font-style: normal;
+    }
+    .comments>ul .comment-meta a:first-child{
+        color: #B5B5B5;
+        font-size: 0.9524vw;
+        line-height: 0.9524vw;
+        font-style: italic;
+    }
+    .comments>ul .comment-meta {
+        margin-bottom: 1.9048vw;
+    }
+    .comments>ul .comment-body {
+        position: relative;
+        padding-left: 7.7381vw;
+        padding-bottom: 0.5952vw;
+        padding-top: 2.381vw;
+        
+    }
+    #comments>ul>li.comment ul {
+        list-style: none;
+    }
+    #comments>ul>li.comment ul .comment-body:before {
+        content: ' ';
+        height: 2.9762vw;
+        width: 0.2381vw;
+        background: #EEEEEE;
+        display: flex;
+        position: absolute;
+        left: -0.5952vw;
+        top: 3.2738vw;
+    }
+    #comments>ul>li.comment {
+        border-bottom: 0.0595vw solid #E6E6E6;
+    }
+    #comments>ul>li.comment:last-child {
+        border-bottom: none;
+    }
+    .comments>ul .comment-body .reply {
+        text-transform: uppercase;
+        position: absolute;
+        right: 0;
+        top: 2.381vw;
+        font-size: 1.0714vw;
+    }
+    .comment-respond .comment-reply-title{
+        font-size: 1.0714vw;
+        text-transform: uppercase;
+    }
+    .comment-respond .comment-reply-title>small {
+        text-transform: uppercase;
+        float: right
+    }
+    .comment-form {
+        font-size: 0;  /* css hack for fix blank position */
+    }
+    .comment-form>.logged-in-as a:first-child {
+        color: #666666;
+    }
+    .comment-form>.logged-in-as {
+        margin-bottom: 1.7857vw;
+    }
+    .comment-form>.form-submit {
+        margin-bottom: 4.7619vw
+    }
+    .comment-form .comment-error {
+        color: red;
+        font-size: 1.0714vw;
+        margin-bottom: 0.2976vw;
+    }
+    .comment-form-comment .comment-content {
+        width: 48.2143vw;
+        height: 11.9048vw;
+        resize: none;
+        border: 0.0595vw #E6E6E6 solid;
+        padding: 1.1905vw 1.3095vw 1.1905vw 1.3095vw;
+        font-size: 1.0952vw;
+        line-height: 1.0952vw;
+        box-sizing: border-box;
+    }
+    .comment-form-comment .comment-content::placeholder {
+        font-size: 1.0952vw;
+        line-height: 1.0952vw;
+    }
+    .comment-form>.form-submit>.submit {
+        border: 0.0595vw solid #DBB302;
+        text-transform: uppercase;
+        color: #DBB302;
+        font-size: 1.0952vw;
+        line-height: 1.0952vw;
+        background: white;
+        box-sizing: border-box;
+        padding: 0.9644vw 1.5059vw 0.9644vw 1.5059vw;
+        cursor: pointer;
+    }
+    .comment-form>.form-submit>.submit:hover {
+        background: #DBB302;
+        color: white; 
+    }
+    .comment-form-author {
+        margin-right: 1.3095vw;
+    }
+    .comment-form-author,
+    .comment-form-email,
+    .comment-form-url
+    {
+        display: inline-flex;
+    }
+    .comment-form-author input,
+    .comment-form-email input,
+    .comment-form-url input
+    {
+        width: 23.4524vw;
+        height: 3.4524vw;
+        border: 0.0595vw solid #E6E6E6;
+        padding:  1.369vw;
+        font-size: 0.9524vw;
+        line-height: 0.9524vw;
+        color: #333333;
+        box-sizing: border-box;
+    }
+    .comment-form-url input {
+        width: 48.2143vw;
+    }
+    #wp-comment-cookies-consent {
+        width: 1.0714vw;
+        height: 1.0714vw;
+        margin: 0;
+        vertical-align: middle;
+        margin-right: 0.2976vw;
+    } 
+    .comment-form-cookies-consent>label {
+        color: #B5B5B5;
+        font-size: 0.9524vw;
+        line-height: 0.9524vw;
+    }
+    @media only screen and (max-width: 640px){
+        .likes-form {
+            margin-bottom: 8vw;
+        }
+        .article-info .post-meta-box a.edit-link:before {
+            margin-right: 3.2133vw;
+            width: 0.1333vw;
+            height: 1.68vw;
+        }
+        h2.article-title {
+            margin-top: 5.3333vw;
+            font-size: 5.0667vw;
+            line-height: 6.9334vw;
+            margin-bottom: 5.3333vw;
+        }
+        .article-info .post-meta-box {
+            margin-bottom: 0;
+        }
+        .content blockquote {
+			margin-top: 6.4666vw;
+            margin-bottom: 6.4666vw;
+            padding-left: 8vw;   
+        }
+        .content blockquote:before {
+            font-size: 4.7201vw;
+            margin-right: 3.7333vw;
+        }
+        .content blockquote p {
+            font-size: 4vw;
+            line-height: 5.6vw;
+        }
+        .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+			margin-top: 5.3333vw;
+            margin-bottom: 5.3333vw;
+        }
+        .content h1 {
+            font-size: 5.6vw;
+        }
+        .content h2 {
+            font-size: 5.3333vw;
+        }  
+        .content h3 {
+            font-size: 5.0667vw;
+        } 
+        .content h4 {
+            font-size: 4.8vw;
+        } 
+        .content h5 {
+            font-size: 4.5333vw;
+        } 
+        .content h6 {
+            font-size: 4.2667vw;
+        } 
+        .content p {
+			margin-top: 4.5333vw;
+            margin-bottom: 4.5333vw;
+            font-size: 4vw;
+            line-height: 5.8667vw;
+        }
+        .content ul, .content ol {
+            padding-left: 3.3333vw;
+            font-size: 4vw;
+			line-height: 5.8667vw;  
+			margin-top: 5.3333vw;    
+            margin-bottom: 5.3333vw;    
+        }
+        .content figcaption {
+            font-size: 3.2vw;
+            margin-top: 0.6666vw;
+        }
+        .content>figure {
+            margin: 4.5333vw 0 4.5333vw 0;
+        }
+        .wp-block-cover-image, .wp-block-cover {
+            min-height: 50vw;
+            margin: 4.5333vw 0 4.5333vw 0;
+        }
+        .wp-block-gallery ul>li {
+            margin-bottom: 2.1333vw;
+        }
+        .content .wp-block-code {
+            padding: 2.1333vw;
+            font-size: 3.3vw;
+            line-height: 4.2667vw; 
+        }
+        .wp-block-table table {
+            font-size: 3.4667vw;
+        }
+        .wp-block-file {
+            padding-left: 3.4667vw;
+            padding-right: 2.6667vw;
+            padding-top: 1.3333vw;
+            padding-bottom: 1.3333vw;
+            margin: 4.5333vw 0 4.5333vw 0;
+            font-size: 3.4667vw;
+            line-height: 5.3333vw;
+        }
+        .wp-block-file a:last-child, a.wp-block-file__button {
+            padding: 1.6vw 3.2vw 1.6vw 3.2vw;
+            border: 0.1333vw #DBB302 solid;
+            line-height: 2.1333vw;
+        }
+        .wp-block-file a:last-child:after, a.wp-block-file__button:after {
+            font-size: 2.6667vw;
+            margin-left: 2.4vw;
+		}
+		
+		.nav-links {
+			margin-top: 4.5333vw;
+			margin-bottom: 4.5333vw;
+		}
+		.wp-block-button {
+			margin: 4.5333vw 0 4.5333vw 0;
+		}
+        .likes-button {
+            width: 16vw;
+            height: 16vw;
+            border: 0.1333vw solid #C4C4C4;
+            font-size: 2.6667vw;
+            margin-top: 2.6667vw;
+        }
+        .likes-button:before {
+            font-size: 5.6vw;
+            margin-bottom: 1.8667vw;
+        }
+        .post-nav {
+            margin-bottom: 12.6667vw;           
+        }
+        .post-nav .nav-previous a, .post-nav .nav-next a {
+            font-size: 3.7333vw;
+        }
+        .social-share-box {
+            width: 6.6667vw;
+            height: 6.6667vw;
+            margin-right: 4vw;
+        }
+        .post-tags {
+            margin-top: 8.8vw;;
+        }
+        .post-tags a{
+            padding-left: 3.5333vw;
+            padding-right: 3.5333vw;
+            padding-top: 1.7333vw;
+            padding-bottom: 1.7333vw;
+            margin-right: 1.3333vw;
+            font-size: 2.2vw;
+            line-height: 2.2vw;
+        }
+        .comments>ul .comment-author .avatar {
+            width: 10.6667vw;
+            height: 10.6667vw;
+            left: 0;
+        }
+        #comments>ul {
+            padding-left: 0;
+        }
+        .comments>ul .comment-body {
+            padding-left: 15.7067vw;
+            padding-bottom: 1.8667vw;
+            padding-top: 5.3333vw;         
+        }
+        .comments>ul cite.fn a {
+            font-size: 3.7333vw;
+        }
+        .comments>ul .comment-meta a:first-child {
+            font-size: 3.2vw;
+            line-height: 3.2vw;
+        }
+        .comments>ul .comment-body .reply {
+            font-size: 3.7333vw;
+            top: 5.3333vw;       
+        }
+        .comments>h2,.comment-respond .comment-reply-title {
+            font-size: 3.7333vw;
+        }
+        .comment-form-comment .comment-content {
+            width: 92vw;
+            height: 26.6667vw;
+            border: 0.1333vw #E6E6E6 solid;
+            padding: 4vw 3.3333vw 4vw 3.3333vw;
+            font-size: 3.4667vw;
+            line-height: 3.4667vw;     
+        }
+        .comment-form-comment .comment-content::placeholder {
+            font-size: 3.4667vw;
+            line-height: 3.4667vw;   
+        }
+        .comment-form>.form-submit>.submit {
+            border: 0.1333vw solid #DBB302;
+            font-size: 3.2vw;
+            line-height: 3.2vw;
+            padding: 2.8133vw 4.4vw 2.8133vw 4.4vw;
+            cursor: pointer;
+        }
+        .comment-form .comment-error {
+            font-size: 3.4667vw;
+        }
+        #comments>ul>li.comment {
+            border-bottom: 0.1333vw solid #E6E6E6;
+        }
+        .comment-form-author input, .comment-form-email input, .comment-form-url input {
+            width: 92vw;
+            height: 10.6667vw;
+            border: 0.1333vw solid #E6E6E6;
+            padding: 2.5333vw;
+            font-size: 3.4667vw;
+            line-height: 3.4667vw;
+        }
+        #wp-comment-cookies-consent {
+            width: 5.3333vw;
+            height: 5.3333vw;
+            margin-right: 1.3333vw;
+        }
+        .comment-form-cookies-consent>label {
+            font-size: 3.2vw;
+            line-height: 4.8vw;
+        }
+        .comment-form-cookies-consent {
+            display: flex;
+        }
+        .post-nav .nav-previous a:before {
+            font-size: 5.3333vw;
+            margin-right: 2.8vw;         
+        }
+        .post-nav .nav-next a:after {
+            font-size: 5.3333vw; 
+            margin-left: 2.8vw;        
+        }
+        hr {
+            height: 0.1333vw;
+            margin-top: 5.3333vw;
+            margin-bottom: 5.3333vw;
+        }
+        .post-password-form>p>label>input {
+            margin-left: 2.0001vw;
+            margin-right: 1.8667vw;
+            width: 42.6667vw;
+            height: 5.3333vw;
+            border-radius: 0.5333vw;
+            border: 0.1334vw #E6E6E6 solid;
+            padding-left: 2.6667vw;
+            padding-right: 2.6667vw;
+        } 
+    
+        .post-password-form>p>input {
+            font-size: 2.1333vw;
+            border-radius: 0.5333vw;
+            padding: 1.8934vw 2.5334vw 1.8934vw 2.5334vw;
+        }
+        #comments>ul>li.comment ul .comment-body:before {
+            height: 6.6667vw;
+            width: 0.5333vw;
+            left: -3.3333vw;
+            top: 7.3334vw;
+        }
+        #comments {
+            margin-top: 12vw;
+        }
+        .wp-block-table table td {
+            border: 0.2667vw #cccccc solid;
+            padding: 1.0667vw;
+        }
+        .wp-block-gallery ul li figure>figcaption {
+            font-size: 1.7333vw;
+            line-height: 2.9333vw;
+        }
+    }
+    pre, code {
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 12pt;
+	background-color: #F1F1F1;
+		padding: .5em;
+	}
+	code {
+		padding: 0.1em;
+	}
+    :root:not(#_):not(#_):not(#_):not(#_):not(#_) .amp-wp-681d4ff{text-align:center;margin-top:.5vw}
+</style>
+    
+
+    
+
+
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+<noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+<link rel="canonical" href="https://braingodkali.github.io/post/wo-suo-xuan-ze-de-you-xi-yin-qing/" />
+<link rel="shortcut icon" href="https://braingodkali.github.io/favicon.ico?v=1666236493223">
+
+<meta name="author" content="作者">
+
+<meta itemprop="name" content="我所选择的游戏引擎 | 脑神卡里(BrainGod_Kacry)">
+<meta itemprop="description" content="在今年暑假，我正式接触游戏开发，但游戏开发不可能直接写代码，所以就要用游戏引擎，但市面上太多选择了，我将会用我的经历告诉你我的选择。
+1:虚幻引擎（Unreal Engine 简称UE）
+
+介绍（来自某度百科）
+“虚幻引擎 是由游戏公司EP...">
+<meta itemprop="image" content="https://braingodkali.github.io/post-images/wo-suo-xuan-ze-de-you-xi-yin-qing.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="我所选择的游戏引擎 | 脑神卡里(BrainGod_Kacry)">
+<meta name="twitter:description" content="在今年暑假，我正式接触游戏开发，但游戏开发不可能直接写代码，所以就要用游戏引擎，但市面上太多选择了，我将会用我的经历告诉你我的选择。
+1:虚幻引擎（Unreal Engine 简称UE）
+
+介绍（来自某度百科）
+“虚幻引擎 是由游戏公司EP...">
+<meta name="twitter:image" content="https://braingodkali.github.io/post-images/wo-suo-xuan-ze-de-you-xi-yin-qing.jpg" />
+<meta name="twitter:image:alt" content="我所选择的游戏引擎 | 脑神卡里(BrainGod_Kacry)" />
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://braingodkali.github.io/post/wo-suo-xuan-ze-de-you-xi-yin-qing/">
+<meta property="og:title" content="我所选择的游戏引擎 | 脑神卡里(BrainGod_Kacry)">
+<meta property="og:description" content="在今年暑假，我正式接触游戏开发，但游戏开发不可能直接写代码，所以就要用游戏引擎，但市面上太多选择了，我将会用我的经历告诉你我的选择。
+1:虚幻引擎（Unreal Engine 简称UE）
+
+介绍（来自某度百科）
+“虚幻引擎 是由游戏公司EP...">
+<meta property="og:image" content="https://braingodkali.github.io/post-images/wo-suo-xuan-ze-de-you-xi-yin-qing.jpg">
+<meta property="og:image:alt" content="我所选择的游戏引擎 | 脑神卡里(BrainGod_Kacry)" />
+<meta property="og:site_name" content="脑神卡里(BrainGod_Kacry)">
+<meta property="og:locale" content="zh_CN">
+<meta property="tag" content="我所选择的游戏引擎 | 脑神卡里(BrainGod_Kacry)" />
+
+
+<script type="application/ld+json">
+  {
+"@context": "https://schema.org",
+"@type": "BlogPosting",
+"mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": "https://braingodkali.github.io/post/wo-suo-xuan-ze-de-you-xi-yin-qing/"
+},
+"headline": "我所选择的游戏引擎 | 脑神卡里(BrainGod_Kacry)",
+"datePublished": "Sat Oct 01 2022 16:19:16 GMT+0800",
+"dateModified": "Sat Oct 01 2022 16:19:16 GMT+0800",
+"author": {
+  "@type": "Person",
+  "name": "作者"
+},
+"publisher": {
+  "@type": "Organization",
+  "name": "作者",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://braingodkali.github.io/favicon.ico"
+  }
+},
+"image": [
+"https://braingodkali.github.io/post-images/wo-suo-xuan-ze-de-you-xi-yin-qing.jpg"
+],
+"description": "在今年暑假，我正式接触游戏开发，但游戏开发不可能直接写代码，所以就要用游戏引擎，但市面上太多选择了，我将会用我的经历告诉你我的选择。
+1:虚幻引擎（Unreal Engine 简称UE）
+
+介绍（来自某度百科）
+“虚幻引擎 是由游戏公司EP..."
+ }
+
+</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/", 
+    "@type": "BreadcrumbList", 
+    "itemListElement": [{
+      "@type": "ListItem", 
+      "position": 1, 
+      "name": "Home",
+      "item": "https://braingodkali.github.io"  
+    },{
+      "@type": "ListItem", 
+      "position": 2, 
+      "name": "我所选择的游戏引擎 | 脑神卡里(BrainGod_Kacry)",
+      "item": "https://braingodkali.github.io/post/wo-suo-xuan-ze-de-you-xi-yin-qing/"  
+    }]
+  }
+  </script>
+
+
+
+
+
+
+
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+<script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"></script>
+
+
+<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+
+
+
+<script async custom-element="amp-gist" src="https://cdn.ampproject.org/v0/amp-gist-0.1.js"></script>
+
+<link rel="alternate" type="application/atom+xml" title="我所选择的游戏引擎 | 脑神卡里(BrainGod_Kacry) - Atom Feed" href="https://braingodkali.github.io/atom.xml">
+
+
+
+  
+
+
+
+  
+
+
+</head>
+
+<body>
+  <input type="checkbox" id="header-menu-button">
+  <header id="commonTop">
+  <div class="top-container">
+    <div class="title-menus-area">
+      <a class="blog-title" href="https://braingodkali.github.io">脑神卡里(BrainGod_Kacry)</a>
+      <label for="header-menu-button" class="top-menus">
+        <nav class="menu-menu-1-container">
+          <ul id="menu-menu-1" class="menu">
+            
+            
+            <li>
+              <a href="/archives" aria-current="page">归档</a></li>
+            
+            
+            
+            <li>
+              <a href="/tags" aria-current="page">标签</a></li>
+            
+            
+          </ul>
+        </nav>
+      </label>
+    </div>
+    
+    <div class="tagline">
+      <div class="tagline-main"></div>
+      <div class="tagline-sub"></div>
+    </div>
+    
+  </div>
+</header>
+  <main>
+    <div class="main-container">
+
+      <div class="article-info">
+        
+          <div class="flex-box meta-category">
+            <a class="post-cate" href="https://braingodkali.github.io/tag/6NqXLODJL/">游戏开发</a></div>
+          
+        <h2 class="article-title">
+          <a href="https://braingodkali.github.io/post/wo-suo-xuan-ze-de-you-xi-yin-qing/">我所选择的游戏引擎</a>
+        </h2>
+        <div class="flex-box">
+          <div class="flex-box post-meta-box">
+            <a class="post-meta" href="https://braingodkali.github.io"><span
+                class="iconfont icon-mr-postmeta"></span>作者</a>
+            <span class="post-meta"><span class="iconfont icon-mr-postmeta"></span>2022 年 10	月 1日</span>
+            
+
+
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p>在今年暑假，我正式接触游戏开发，但游戏开发不可能直接写代码，所以就要用<a href="https://baike.baidu.com/item/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%BC%95%E6%93%8E/18183577">游戏引擎</a>，但市面上太多选择了，我将会用我的经历告诉你我的选择。</p>
+<h1 id="1虚幻引擎unreal-engine-简称ue">1:<a href="https://www.unrealengine.com/zh-CN/">虚幻引擎</a>（Unreal Engine 简称UE）</h1>
+<figure data-type="image" tabindex="1"><img src="https://braingodkali.github.io/post-images/1664671497471.png" alt="" loading="lazy"></figure>
+<h3 id="介绍来自某度百科">介绍（来自某度百科）</h3>
+<p><strong>“虚幻引擎 是由游戏公司EPIC开发的虚幻引擎的最新版本。是一个面向下一代游戏机和DirectX 9个人电脑的完整的游戏开发平台，提供了游戏开发者需要的大量的核心技术、数据生成工具和基础支持。”</strong></p>
+<h3 id="费用要求开源但又不完全免费"><strong>费用要求：开源，但又不完全免费</strong></h3>
+<p>我可以说虚幻是你在游戏开发里最划算的选择，首先它是开源的（但它的源码需要你Follow他们官方github账号才能看到，而且不完全免费，它需要你再通过本引擎 <strong>每季度获得首个3000美元的收入后，开发者开始支付5%的版权费用即可</strong>  ！！！），而且它相比于Unity来说没有阉割功能，对个人和付费用户一视同仁。</p>
+<h3 id="开发方式"><strong>开发方式</strong></h3>
+<p>然后就是编程的要求，虚幻提供了“ <a href="https://docs.unrealengine.com/4.27/zh-CN/ProgrammingAndScripting/Blueprints/GettingStarted/">蓝图</a> ”这种开发方式和C++开发</p>
+<h5 id="蓝图"><strong>蓝图</strong></h5>
+<p><strong>蓝图</strong> 简单来说就是节点，节点简单来说就是Nodes，Nodes简单来说就是通过 <strong>连线的方式关联两个你想关联的模块实现逻辑方式的一种形式</strong> ，我看也有些人称之为逻辑树，他的最大特点就是简单，不需要有编程基础（官方这么说，但是我建议还是提前学一下编程比较好），还有非破坏性原则。这种节点的应用场景不仅是在游戏开发的行业，在很多影视方面也会用到，例如有些同学可能剪辑会用 <a href="http://www.blackmagicdesign.com/cn/products/davinciresolve/">达芬奇</a> ，达芬奇它就是一种节点形式来做特效。但它归结下来不完全算是蓝图，蓝图是具有UE特色的节点方式，包括b站在内，绝大多数视频教程也是在教你如何使用它的蓝图。</p>
+<figure data-type="image" tabindex="2"><img src="https://braingodkali.github.io/post-images/1664615165371.jpg" alt="" loading="lazy"></figure>
+<h5 id="c"><strong>C++</strong></h5>
+<p>如果你是一个真正想体验写代码或者是真正想上手学习C++的人，那我建议你可以使用他的C++来制作游戏，那么你可以尝试<a href="https://visualstudio.microsoft.com/zh-hans/vs/">Visual Studio</a>用配合UE去开发，但是这难度非常高。</p>
+<h6 id="两者之间的关系"><strong>两者之间的关系</strong></h6>
+<p>用官方的话来说”蓝图比较适合于设计程序员，而C++会更适用于逻辑程序员“，说白就是说如果你是只需要通过比较简单的逻辑去实现游戏的功能，你可以直接用游戏为你写好的东西；但如果你的逻辑比较复杂，需要很强的运算性的话呢，就需要C++来帮你制作一个逻辑。</p>
+<h3 id="优点"><strong>优点</strong></h3>
+<ul>
+<li>
+<p>1，<strong>画质</strong> 是真的顶尖，从来没有哪一款游戏已经可以导入如此精细的建模，我跟朋友在谈到UE的时候也会戏称为包装成游戏引擎的顶尖影视软件（几张图片解决）。<br>
+<img src="https://braingodkali.github.io/post-images/1664616900636.png" alt="" loading="lazy"><br>
+<img src="https://braingodkali.github.io/post-images/1664616907701.png" alt="" loading="lazy"><br>
+<img src="https://braingodkali.github.io/post-images/1664616917440.png" alt="" loading="lazy"><br>
+<img src="https://braingodkali.github.io/post-images/1664616922131.png" alt="" loading="lazy"><br>
+<img src="https://braingodkali.github.io/post-images/1664616931858.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>2，<strong>免费开源</strong> “若深爱，那就给它自由。”这是2015年4月份，从虚幻引擎4开源免费一直挂到现在的官网标语。将20年以来沉淀的所有精湛技术全部开源给每一位开发者免费享用，这是Epic迈出的巨大一步，也是很有战略意义的一步，这使得人人都可以享受虚幻引擎带来的创作快感，这样的收费模式也会赢得更多开发商的青睐，从而大量开辟市场，赢得用户。猜猜看，刚过了不到半年，对手CE就马上放下架子紧随其后，跟着UE走上了免费开源之路。<br>
+<img src="https://braingodkali.github.io/post-images/1664617309158.png" alt="" loading="lazy"><br>
+只能冲着走走。</p>
+</li>
+<li>
+<p>3，<strong>蓝图编程</strong> 虚幻4的优点不胜枚举，有一样东西，我们一定要着重说，那就是蓝图。blueprint是一种非常超前的想法，而且非常有前途，也非常好，它基本上可以不用code来解决轻量单机游戏开发中的所有程序问题。最具代表性的就是杨冰独立开发的“迷失之魂(LostSoulAside)”。尽管蓝图还不能完全替代c++，但想一下，就在现在，Sequencer，AutoLOD，VReditor…虚幻引擎正在以前所未有的迭代速度升级换代，赢得赞誉。<br>
+<img src="https://braingodkali.github.io/post-images/1664615165371.jpg" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>4，<strong>最懂游戏</strong> Epic始创于1991年，它不同于Unity只是制作引擎，回收用户数据。虚幻引擎是真真正正的一代一代探索者根据他们做的游戏和经验迭代出来的引擎，我在虚幻4开源后接触到它的时候很快就喜欢上了他人性化的设计，诸如ConstantBiasScale这种人性化的节点设计非常的多，你会发现，虚幻引擎并不高冷，也并不复杂，它甚至很贴心，更懂游戏设计者的心。</p>
+</li>
+</ul>
+<h3 id="缺点"><strong>缺点</strong></h3>
+<ul>
+<li>
+<p>1，对电脑性能要求真的很高。。。（画质那么好，不高才怪），我愿称之为磁盘杀手（需要的储存空间约等于一个大表哥2）。<br>
+<img src="https://braingodkali.github.io/post-images/1664617980656.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>2，对2D游戏的支持很差。<br>
+<img src="https://braingodkali.github.io/post-images/1664618064866.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>3，对Linux的支持差的只能说是个🌶️🐤</p>
+</li>
+</ul>
+<h3 id="总结"><strong>总结</strong></h3>
+<p>如果你是一个专业开发者的话呢，啊，well是一个很好的选择，但是如果你是个个人开发者on where也会成为你的首选之一，但是。。（<strong>性能和难度</strong>）懂吧。。</p>
+<h1 id="2unity">2：<a href="https://unity.cn/">Unity</a></h1>
+<figure data-type="image" tabindex="3"><img src="https://braingodkali.github.io/post-images/1664671533289.png" alt="" loading="lazy"></figure>
+<h3 id="介绍来自某度百科-2">介绍（来自某度百科）</h3>
+<p>Unity 是实时3D互动内容创作和运营平台。包括游戏开发、美术、建筑、汽车设计、影视在内的所有创作者，借助Unity将创意变成现实。Unity平台提供一整套完善的软件解决方案，可用于创作、运营和变现任何实时互动的2D和3D内容，支持平台包括手机、平板电脑、PC、游戏主机、增强现实和虚拟现实设备。</p>
+<ul>
+<li>游戏作品：《王者荣耀》《Granny》《使命召唤手游》</li>
+<li>支持维度 ：2D、3D、VR、AR、MR [3]</li>
+</ul>
+<h3 id="费用要求个人免费"><strong>费用要求：个人《免费》。。</strong></h3>
+<p>也是一张图片解决<br>
+<img src="https://braingodkali.github.io/post-images/1664672114943.jpg" alt="" loading="lazy"></p>
+<h3 id="开发方式-c"><strong>开发方式</strong> C#</h3>
+<p>如果你学习的就是C#的话，你可以无脑的选择它，而且还有来自微软老爹的支持。<br>
+<img src="https://braingodkali.github.io/post-images/1664672602132.png" alt="" loading="lazy"></p>
+<h3 id="优点-2"><strong>优点</strong></h3>
+<ul>
+<li>
+<p>1.<strong>对中国的支持</strong>：Unity在中国混得特别好，所以对本地中国的支持会比绝大多数游戏引擎都强，而且还会有各种各样的云服务之类的。<br>
+<img src="https://braingodkali.github.io/post-images/1664672886679.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>2.<strong>市场广阔</strong>：然后就是Unity在中国范围内的市场也远比其他各类游戏引擎都要宽广，中国范围内很多游戏都是由unity制作的，所以在中国也算是主流游戏引擎。<br>
+<img src="https://braingodkali.github.io/post-images/1664673824054.jpg" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>3.<strong>入门简单</strong>，开发语言C#相对于C/C++更简单，而且unity的使用已相对成熟，学习视频较多<br>
+<img src="https://braingodkali.github.io/post-images/1664673635209.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>4.<strong>开发经验悠久</strong> ：相比于UE来说Unity他是更有开发经验的，因为他们是专门从事游戏开发的，在这条道路上也走得更加的结实一些。</p>
+</li>
+<li>
+<p>5.<strong>支持linux</strong> ：我只能说🐂🍺好吧。<br>
+<img src="https://braingodkali.github.io/post-images/1664674209872.jpg" alt="" loading="lazy"></p>
+</li>
+</ul>
+<h3 id="缺点-2"><strong>缺点</strong></h3>
+<ul>
+<li>
+<p>1.<strong>对中国的过度支持</strong> ： Unity虽然在中国混的好但是也会带来一系列很头疼的麻烦，首先第一点就是他们的账号必须要用手机号注册（包括登录），这会给很多像我一样学习者带来不必要的麻烦；其次他对中国过度支持造成了很严重的广告投放行为；而且过度的支持让我们很难想这到底是不是一个游戏引擎。<br>
+<img src="https://braingodkali.github.io/post-images/1664672886679.png" alt="" loading="lazy"><br>
+云服务可以带来很大的便利但是有的时候我们是真的不需要的。</p>
+</li>
+<li>
+<p>2.<em>看图</em><br>
+<img src="https://braingodkali.github.io/post-images/1664674370008.png" alt="" loading="lazy"></p>
+</li>
+</ul>
+<h3 id="总结-2"><strong>总结</strong></h3>
+<p>这款引擎我用的不多，当他给我最大的印象就是在中国混的真的是太好了，所以造成了以上的问题，所以我也没有太大的心思对他进行更深的工作。</p>
+<h1 id="3godot"><strong>3：Godot</strong></h1>
+<figure data-type="image" tabindex="4"><img src="https://braingodkali.github.io/post-images/1664750750178.jpg" alt="" loading="lazy"></figure>
+<h3 id="介绍来自某度百科-3">介绍（来自某度百科）</h3>
+<p>Godot游戏引擎是Juan Linietsky和Ariel Manzur 发起的，是一款制作游戏的软件，可以制作2D和3D游戏。通过基于节点的架构来设计游戏，3D渲染器设计可以增强3D游戏的画面。具有内置工具的2D游戏功能以像素坐标工作，可以掌控2D游戏效果。面向团队的设计从架构和工具到VCS集成，Godot专为团队中的每个人设计。编辑器可在Windows、Mac OS和Linux系统中运行，支持导出游戏到Windows、Mac OS、Linux、Android、iOS、UWP和HTML5等平台。</p>
+<h3 id="费用要求完全免费开源"><strong>费用要求：完全免费开源！！！</strong></h3>
+<p>Godot可以说是你在目前流行游戏引擎里面看到的为数不多真正开源无门槛的游戏引擎，完全免费开源！！</p>
+<h3 id="开发方式支持绝大多数的语言"><strong>开发方式：《支持》绝大多数的语言</strong></h3>
+<figure data-type="image" tabindex="5"><img src="https://braingodkali.github.io/post-images/1664749139736.png" alt="" loading="lazy"></figure>
+<ul>
+<li>1.GDScript：“类似Python的脚本语言，旨在轻松制作游戏”其实就是官方提供的一种专门用于Godot的语言。</li>
+<li>2.C#：官方支持比较强，已经可以成为Godot的开发语言了，但是有关他的教程比较少。</li>
+<li>3.C++：完全C++支持，无需使用 GDNative 重新编译引擎（但我建议别弄因为很麻烦而且完全没有教程）</li>
+<li>GDNative：换一句话就是外置代码。</li>
+<li>Visual scripting：类似UE的蓝图，可视化编程的一种方式。</li>
+<li>其他语言：社区提供对 Rust、Nim、D 和其他语言的支持。</li>
+</ul>
+<h3 id="优点-3"><strong>优点</strong></h3>
+<ol>
+<li>
+<p>宽松的开源协议：Godot引擎的源代码采用MIT协议发布，这意味着我们可以在商业项目中免费使用Godot Engine，并且可以自由地修改Godot的源代码，将其移植到我们自己的硬件平台上。这个需求用Unity之类的闭源游戏引擎肯定是不行的。其实我们最初的原型是用Unity开发的，后来因为无法移植而放弃了Unity，所以说还是开源软件好。</p>
+</li>
+<li>
+<p>所见即所得的开发环境。我们也尝试过OGRE等其他3D游戏引擎，但是它们都没有Godot这样强大而好用的开发工具，你只能用代码来构造场景，这样效率就很低。而Godot提供了和Unity类似的开发体验，直接把模型、光源、摄像机拖进场景，再设置参数就可以了，随时可以看到渲染效果，搭建场景非常方便。</p>
+</li>
+<li>
+<p>自带的GUI控件非常好用。Godot原本是个2D游戏引擎，所以天然地对2D渲染有着良好的支持。它自带了几十种GUI控件，直接拖到场景中去，就可以迅速构造出一个2D交互界面，对于熟悉Xcode和Qt的人来说很容易上手。实际上Godot引擎的开发环境（Editor）就是用Godot自己的GUI控件搭起来的，这一点是非常厉害的。相比之下，Unity的GUI工具就没有这么简便了。</p>
+</li>
+<li>
+<p>一键导出到目标平台的能力。我们在电脑上开发3D游戏，在电脑上测试OK之后，直接一键导出project，然后把导出的文件拷贝到我们的嵌入式设备上就可以使用了，渲染效果和电脑上一模一样，省去了适配不同平台的麻烦。</p>
+</li>
+</ol>
+<h3 id="缺点-3"><strong>缺点</strong></h3>
+<ol>
+<li>
+<p>渲染性能不如Unity。当我们的模型总面数达到30万的时候，Unity仍可以渲染60帧，而Godot只能渲染不到30帧。经过分析，Unity主要采用Deferred rendering，并且在一次Draw Call中渲染尽可能多的物体（比如所有GUI控件可以在一个Draw Call内渲染完），以减少Draw Call。而Godot采用了不同的思路，它通过调整渲染顺序，尽可能减少shader change。两种方式各有千秋，但就目前来说，Unity的渲染性能更胜一筹，希望Godot加油啊。</p>
+</li>
+<li>
+<p>对嵌入式GPU的抗锯齿支持不太好。在开发AI防碰仪的早期阶段，当时Godot的最新版本为3.1，这个版本对MSAA抗锯齿的支持非常有限。具体来说，就是不支持OpenGL ES 2.0的MSAA扩展。而我们的Mali-400 GPU偏偏只支持OpenGL ES 2.0，这就用不了MSAA了吗？也不是，幸好Godot是一个比较活跃的开源软件，在Github上有人为Godot贡献了OpenGL ES 2.0的MSAA补丁。我们在合并这个补丁之后又做了一些修改，就可以启用MSAA了，渲染质量瞬间提升了一截。现在Godot已经发布了3.2版本，这个版本是支持在OpenGL ES 2.0上启用MSAA的，大家可以放心使用。</p>
+</li>
+</ol>
+<h3 id="总结-3"><strong>总结</strong></h3>
+<p>不是最专业但绝对是最好的之一，我反正非常支持的他，据说4.0发布之后画质提升。</p>
+<h1 id="cocos系列"><strong>Cocos系列</strong></h1>
+<figure data-type="image" tabindex="6"><img src="https://braingodkali.github.io/post-images/1664751682745.jpg" alt="" loading="lazy"></figure>
+<h3 id="介绍来自某度百科-4">介绍（来自某度百科）</h3>
+<p>Cocos是由厦门雅基软件有限公司推出的数字内容开发一站式解决方案，具备开源、免费、轻量、高性能等特点，服务了2D和3D游戏开发、智能座舱、在线教育、XR、数字人、数字文创等领域开发者，Cocos在全球203个国家和地区，拥有150万开发者，覆盖全球超过16亿终端用户。</p>
+<p>Cocos成立于2010年，核心产品包括开源引擎框架Cocos2d-x、编辑器Cocos Creator、游戏加速框架Cocos Runtime、智能座舱解决方案Cocos HMI、互动课件编辑器Cocos ICE、XR方向创作工具Cocos Creator XR等等</p>
+<h3 id="费用要求免费开源"><strong>费用要求：免费开源</strong></h3>
+<p>是真的免费开源，你甚至可以在GitHub上面找到他们的源码</p>
+<h3 id="开发方式-2"><strong>开发方式：</strong></h3>
+<h5 id="cocos2dx"><strong>Cocos2dx</strong></h5>
+<p>支持C++、Lua、JavaScript</p>
+<h5 id="cocos-creator"><strong>Cocos Creator</strong></h5>
+<p>支持 JavaScript，TypeScript<br>
+<img src="https://braingodkali.github.io/post-images/1664752398885.png" alt="" loading="lazy"></p>
+<h3 id="优点比较unity"><strong>优点（比较Unity）</strong></h3>
+<ul>
+<li>
+<p>开发2D游戏:<br>
+Cocos Creator免费，Unity收费;<br>
+Cocos Creator包体小, Unity包体大;<br>
+Cocos Creator 能发native平台外，还能发各大H5小游戏平台如抖音,微信，华为oppo, vivo。<br>
+Unity开发H5平台的小游戏技术没有Cocos Creator成熟。</p>
+</li>
+<li>
+<p>开发3D游戏:<br>
+Cocos Creator免费，Unity收费;<br>
+Cocos Creator 做重度游戏的渲染效果不如Unity, 3D性能比Unity差些。<br>
+Cocos Creator与Unity 做中小型3D游戏技术成熟。<br>
+Cocos Creator 可以发布到h5平台(微信,抖音,小游戏)，Unity发布h5平台不成熟</p>
+</li>
+</ul>
+<h3 id="缺点-4"><strong>缺点</strong></h3>
+<ul>
+<li>
+<p>对Windows的支持不是特别好，没有办法导出exe</p>
+<h3 id="总结-4"><strong>总结</strong></h3>
+</li>
+</ul>
+<p>推一款好引擎但是它主打web端的开发，就很难受。。</p>
+<h1 id="opengl"><strong>openGL</strong></h1>
+<p>我只说了一句这才是真正的大佬。</p>
+
+      </div>
+
+      
+      <nav class="post-nav">
+        
+        
+        <div class="nav-next">
+          <a class="post-nav-link-active" title="Hello Gridea" href="https://braingodkali.github.io/post/hello-gridea/">下一篇文章</a>
+          
+
+        </div>
+      </nav>
+      
+
+      
+      <div class="social-share">
+  <div class="social-share-box">
+    <amp-social-share class="rounded" type="email" layout="responsive" width="20" height="20"></amp-social-share>
+  </div>
+  <div class="social-share-box">
+    <amp-social-share class="rounded" type="linkedin" layout="responsive" width="20" height="20">
+    </amp-social-share>
+  </div>
+  <div class="social-share-box">
+    <amp-social-share class="rounded" type="pinterest" layout="responsive"
+      data-param-media="https://amp.dev/static/samples/img/amp.jpg" width="20" height="20"></amp-social-share>
+  </div>
+  <div class="social-share-box">
+    <amp-social-share class="rounded" type="tumblr" layout="responsive" width="20" height="20"></amp-social-share>
+  </div>
+  <div class="social-share-box">
+    <amp-social-share class="rounded" type="twitter" layout="responsive" width="20" height="20">
+    </amp-social-share>
+  </div>
+  <div class="social-share-box">
+    <amp-social-share class="rounded" type="whatsapp" layout="responsive" width="20" height="20">
+    </amp-social-share>
+  </div>
+  <div class="social-share-box">
+    <amp-social-share class="rounded" type="line" layout="responsive" width="20" height="20"></amp-social-share>
+  </div>
+</div>
+      
+      
+
+      <div class="post-tags">
+        
+        <a href="https://braingodkali.github.io/tag/6NqXLODJL/" rel="tag">游戏开发</a>        
+               
+      </div>
+
+
+        
+
+    </div>
+
+    <div class="sidebar">
+  <aside id="profile-2" class="widget widget_profile">
+    <div class="profile-box">
+      <div class="profile-avatar">
+        <amp-img src="https://braingodkali.github.io/images/avatar.png?v=1666236493223" alt="avatar"
+          layout="fill"></amp-img>
+      </div>
+      <div class="profile-content">
+        <div class="amp-wp-681d4ff">
+          温故而知新
+        </div>
+
+      </div>
+    </div>
+  </aside>
+  
+    <aside id="search-10" class="widget widget_search">
+      <form target="_top" role="search" method=get class="search-form" action="https://www.google.com/search">
+        <input type=hidden name=domains value="https://braingodkali.github.io">
+        <input type=hidden name=sitesearch value="https://braingodkali.github.io">
+        <input name="hl" value="zh-CN" type="hidden">
+        <input required type="text" class="search-field" placeholder="搜索…" name="q">
+        <button type="submit"
+          class="search-submit"></button>
+      </form>
+    </aside>
+    
+    
+      <aside id="recent-posts-2" class="widget widget_recent_entries">
+        <h4 class="widget-title">近期文章</h4>
+         <ul>
+          
+            
+          <li>
+           <a href="https://braingodkali.github.io/post/wo-suo-xuan-ze-de-you-xi-yin-qing/" aria-current="page">我所选择的游戏引擎</a>
+          </li>
+          
+          
+            
+          <li>
+           <a href="https://braingodkali.github.io/post/hello-gridea/" aria-current="page">Hello Gridea</a>
+          </li>
+          
+          
+        </ul>
+     </aside>
+     
+  
+     
+      <aside id="categories-2" class="widget widget_categories">
+        <h4 class="widget-title">标签</h4>
+        <ul>
+            
+              <li class="cat-item"><a href="https://braingodkali.github.io/tag/6NqXLODJL/">
+              游戏开发
+            </a>
+            
+              <li class="cat-item"><a href="https://braingodkali.github.io/tag/iF-xIglPH/">
+              Gridea
+            </a>
+            
+          </li>
+    
+        </ul>
+      </aside>
+      
+
+
+  <aside id="linkcat-2" class="widget widget_links">
+  <h4 class="widget-title">友链</h4>
+  <ul class="xoxo blogroll">
+    
+      
+    
+  </ul>
+</aside>
+
+
+</div>
+    <div class="scrolltop-wrap">
+  <span tabindex="0" role="button" class="go-top" on="tap:commonTop.scrollTo(duration=500, position=top)">
+    <span class="iconfont"></span>
+  </span>
+</div>
+  </main>
+  <footer>
+  <div class="footer-container">
+    <div class="footer-menus">
+    </div>
+    <div class="footer-copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+      
+      
+        <p>
+        主题版本：1.3.0-beta.0；最新版本：<br><br><br><br>
+        <a href="https://github.com/jiansing/gridea-theme-inlineamp/releases" rel="nofollow">
+        <amp-img alt="InlineAMP release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/jiansing/gridea-theme-inlineamp?include_prereleases" height="20" width="140"></amp-img>
+        </p>
+        
+
+    </div>
+  </div>
+</footer>
+
+
+  
+
+
+</body>
+
+</html>
